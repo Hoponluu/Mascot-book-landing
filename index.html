@@ -7,7 +7,20 @@
 <meta name="description" content="Cuốn sách về mascot cho doanh nghiệp, marketer và designer: tạo một nhân vật đúng và nuôi nó thành tài sản thương hiệu. Đọc thử miễn phí chương 1 và 2.">
 <meta property="og:title" content="Hành trình của Nhân vật thương hiệu">
 <meta property="og:description" content="Sách về mascot của đội ngũ TELOS. Đọc thử miễn phí 2 chương đầu.">
-<!-- [CẦN BỔ SUNG] og:image, favicon, link canonical khi có nơi đăng -->
+<link rel="canonical" href="https://mascot-book.nhanluu.com/">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://mascot-book.nhanluu.com/">
+<meta property="og:image" content="https://mascot-book.nhanluu.com/assets/img/book-hero.webp">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/webp" href="assets/img/mascot-nav.webp">
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PFSCQRQZM6"></script>
+<script>
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('config','G-PFSCQRQZM6');
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -317,8 +330,15 @@ main>section:not(.hero){position:relative;z-index:1}
 .reader .bar .ctl{display:none;gap:8px;align-items:center}
 .reader.is-ready .bar .ctl{display:flex}
 /* Toàn màn hình */
-.reader.full{position:fixed;inset:0;z-index:100;border-radius:0;background:var(--indigo-deep);padding:12px clamp(12px,3vw,32px) 16px;border:0}
-body.lock{overflow:hidden}
+/* Toàn màn hình: khung đọc được đưa ra lớp phủ gắn thẳng vào <body> */
+.read-ov{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:clamp(8px,2.5vw,28px);background:rgba(16,9,60,.88);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);overscroll-behavior:contain;touch-action:none;animation:ovIn .35s var(--ease)}
+@keyframes ovIn{from{opacity:0}to{opacity:1}}
+.read-ov .reader.full{width:100%;max-width:1600px;height:100%;min-height:0;margin:0;opacity:1;transform:none;border-radius:var(--radius-xl);background:var(--indigo-deep);border:1px solid rgba(255,255,255,.14);box-shadow:0 30px 80px rgba(0,0,0,.45);touch-action:auto}
+.read-ov .reader.full .stage-book{min-height:0}
+@media (max-width:760px){.read-ov{padding:0}.read-ov .reader.full{border-radius:0;border:0}}
+#bFull .i-close,.reader.full #bFull .i-open{display:none}.reader.full #bFull .i-close{display:block}
+html.lock,body.lock{overflow:hidden;overscroll-behavior:none}
+body.lock{position:fixed;left:0;right:0;width:100%}
 .read-end{display:none}
 @media (max-width:960px){.read-grid{grid-template-columns:1fr}.reader{order:-1}.read-side .m{width:130px}.reader .bar .ttl{display:none}}
 
@@ -738,7 +758,7 @@ footer .copy{border-top:1px solid rgba(255,255,255,.12);margin-top:40px;padding-
             <span class="count" id="bCount" aria-live="polite">–</span>
             <button class="ibtn" id="bNext" aria-label="Trang sau"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg></button>
           </div>
-          <button class="ibtn" id="bFull" aria-label="Toàn màn hình"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
+          <button class="ibtn" id="bFull" aria-label="Toàn màn hình"><svg class="i-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg><svg class="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
           <a class="ibtn" id="bPdf" target="_blank" rel="noopener" aria-label="Mở file PDF trong tab mới"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg></a>
         </div>
         <div class="stage-book">
@@ -1012,7 +1032,7 @@ const CONFIG = {
   PAGEFLIP: 'https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js'
 };
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-const track = (ev, p={}) => { try{ (window.dataLayer=window.dataLayer||[]).push({event:ev,...p}); }catch(e){} };
+const track = (ev, p={}) => { try{ (window.dataLayer=window.dataLayer||[]).push({event:ev,...p}); if(typeof gtag==='function') gtag('event',ev,p); }catch(e){} };
 
 /* ---------- Link Google Form + nguồn ---------- */
 document.querySelectorAll('[data-form]').forEach(a=>{
@@ -1195,18 +1215,35 @@ links.forEach(a=>{ const s=document.querySelector(a.getAttribute('href')); s&&se
   function fit(){
     if(!pf) return;
     const full=R.classList.contains('full');
-    const maxH=full?innerHeight-90:Math.min(innerHeight*.78,760);
+    const maxH=full?Math.max(240,flipEl.parentElement.clientHeight-8):Math.min(innerHeight*.78,760);
     const ratio=(pf.getSettings().width*(innerWidth<760||pf.getOrientation()==='portrait'?1:2))/pf.getSettings().height;
     const w=Math.min(flipEl.parentElement.clientWidth, maxH*ratio);
     flipEl.style.width=w+'px';
     dispatchEvent(new Event('resize'));
   }
+  // Toàn màn hình: chuyển khung đọc vào lớp phủ ở <body>, khoá cuộn trang phía sau (cả iOS)
+  const ph=document.createComment('reader'), ov=document.createElement('div');
+  ov.className='read-ov'; ov.setAttribute('role','dialog'); ov.setAttribute('aria-modal','true'); ov.setAttribute('aria-label','Đọc thử toàn màn hình');
+  ov.addEventListener('click',e=>{ if(e.target===ov) toggleFull(); });
+  ov.addEventListener('touchmove',e=>{ if(e.target===ov) e.preventDefault(); },{passive:false});
+  let savedY=0, lastFocus=null;
   function toggleFull(){
     const on=!R.classList.contains('full');
-    R.classList.toggle('full',on); document.body.classList.toggle('lock',on);
+    const root=document.documentElement, b=document.body;
+    if(on){
+      lastFocus=document.activeElement; savedY=scrollY;
+      R.parentNode.insertBefore(ph,R); ov.appendChild(R); b.appendChild(ov);
+      b.style.top=(-savedY)+'px'; root.classList.add('lock'); b.classList.add('lock');
+      start(); history.replaceState(null,'','#doc-thu'); track('read_fullscreen');
+    }else{
+      ph.parentNode.insertBefore(R,ph); ph.remove(); ov.remove();
+      root.classList.remove('lock'); b.classList.remove('lock'); b.style.top='';
+      const sb=root.style.scrollBehavior; root.style.scrollBehavior='auto'; scrollTo(0,savedY); root.style.scrollBehavior=sb;
+    }
+    R.classList.toggle('full',on);
     bFull.setAttribute('aria-label',on?'Thoát toàn màn hình':'Toàn màn hình');
-    if(on){ start(); history.replaceState(null,'','#doc-thu'); }
-    requestAnimationFrame(()=>{ fit(); setTimeout(fit,60); });
+    (on?bFull:(lastFocus||bFull)).focus({preventScroll:true});
+    requestAnimationFrame(()=>{ fit(); setTimeout(fit,60); setTimeout(fit,400); });
   }
   let rt; addEventListener('resize',e=>{ if(!e.isTrusted) return; clearTimeout(rt); rt=setTimeout(fit,150); });
   document.getElementById('bOpen').addEventListener('click',start);
