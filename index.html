@@ -1,0 +1,1293 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hành trình của Nhân vật thương hiệu · Sách về mascot của TELOS</title>
+<meta name="description" content="Cuốn sách về mascot cho doanh nghiệp, marketer và designer: tạo một nhân vật đúng và nuôi nó thành tài sản thương hiệu. Đọc thử miễn phí chương 1 và 2.">
+<meta property="og:title" content="Hành trình của Nhân vật thương hiệu">
+<meta property="og:description" content="Sách về mascot của đội ngũ TELOS. Đọc thử miễn phí 2 chương đầu.">
+<!-- [CẦN BỔ SUNG] og:image, favicon, link canonical khi có nơi đăng -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* ===== Tokens: TELOS Design System (landing 2026) ===== */
+:root{
+  --indigo:#251776;--indigo-deep:#1B126D;--violet:#4535B8;
+  --pink:#EF4A82;--pink-deep:#C81F68;--pink-soft:#FDE4EE;
+  --sky:#40B0E0;--sky-deep:#0B6E96;--sky-soft:#DDF0F9;--selection:#3AA6DB;
+  --yellow:#FFC945;--ink:#1E1E24;--bg-a:#E3F1FB;--bg-b:#F6FAFE;--white:#fff;
+  --muted:#5F5885;--line:rgba(37,23,118,.14);--on-indigo:#F4F1FF;--on-indigo-soft:#B9B0E6;
+  --space-xs:8px;--space-sm:14px;--space-md:22px;--space-lg:28px;--space-xl:48px;
+  --wrap:1200px;--gut:clamp(16px,4vw,48px);--pad:clamp(64px,9vw,120px);
+  --radius-sm:14px;--radius-md:18px;--radius-lg:24px;--radius-xl:28px;--radius-pill:999px;
+  --shadow-card:0 24px 40px -32px rgba(37,23,118,.35);
+  --shadow-card-hover:0 34px 50px -30px rgba(37,23,118,.45);
+  --shadow-shot:0 26px 40px -18px rgba(20,10,80,.55);
+  --ease:cubic-bezier(.16,1,.3,1);--dur:.7s;--dur-hover:.25s;
+  --font:'Be Vietnam Pro','Segoe UI',system-ui,-apple-system,sans-serif;
+  --nav-h:64px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:calc(var(--nav-h) + 12px)}
+body{margin:0;font-family:var(--font);color:var(--ink);font-size:16px;line-height:1.55;
+  background:
+    radial-gradient(rgba(37,23,118,.11) 1px,transparent 1.2px) 0 0/14px 14px,
+    linear-gradient(180deg,var(--bg-a) 0%,var(--bg-b) 38%,var(--white) 100%);
+  -webkit-font-smoothing:antialiased;overflow-x:hidden}
+html,body{overflow-x:clip}
+img{max-width:100%;display:block}
+a{color:inherit}
+button{font:inherit;cursor:pointer}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gut)}
+section{position:relative;padding:var(--pad) 0}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.todo{color:#E5252A;font-weight:700}
+
+/* ===== Type ===== */
+.kicker{display:inline-block;font-size:clamp(14px,1.4vw,18px);font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--pink);margin:0 0 14px}
+h1,h2,h3{margin:0;font-weight:900;color:var(--indigo)}
+h2{font-size:clamp(30px,4.6vw,54px);line-height:1.08;letter-spacing:-.02em;text-wrap:balance}
+h2 .l2{display:block;color:var(--muted);font-weight:800}
+h3{font-size:clamp(19px,1.8vw,22px);font-weight:800;line-height:1.3}
+.lead{font-size:clamp(17px,1.7vw,20px);font-weight:500;line-height:1.55;color:var(--muted);max-width:60ch}
+.head{max-width:780px;margin-bottom:clamp(32px,5vw,56px)}
+.head.center{margin-left:auto;margin-right:auto;text-align:center}
+.head.center .lead{margin-left:auto;margin-right:auto}
+
+/* Selection box kiểu Figma */
+.sel{position:relative;display:inline-block;padding:0 .14em;margin:0 .04em;color:var(--white);background:var(--selection);
+  clip-path:inset(0 100% 0 0);transition:clip-path .9s var(--ease) .2s}
+.sel i{position:absolute;width:9px;height:9px;background:#fff;border:1.5px solid var(--sky);transform:scale(0);transition:transform .35s var(--ease) 1s}
+.sel i:nth-child(1){left:-5px;top:-5px}.sel i:nth-child(2){right:-5px;top:-5px}
+.sel i:nth-child(3){left:-5px;bottom:-5px}.sel i:nth-child(4){right:-5px;bottom:-5px}
+.sel.on{clip-path:inset(0 0 0 0)}.sel.on i{transform:scale(1)}
+
+/* ===== Buttons & tags ===== */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border-radius:var(--radius-pill);
+  font-size:17px;font-weight:800;line-height:1;text-decoration:none;border:2px solid transparent;
+  transition:transform var(--dur-hover) var(--ease),box-shadow var(--dur-hover) var(--ease),background var(--dur-hover)}
+.btn:hover{transform:translateY(-2px)}
+.btn:focus-visible,a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--sky);outline-offset:3px}
+.btn-pink{background:var(--pink);color:#fff;box-shadow:0 14px 26px -14px rgba(239,74,130,.9)}
+.btn-pink:hover{background:var(--pink-deep)}
+.btn-ghost{background:#fff;color:var(--indigo);border-color:var(--line)}
+.btn-ghost:hover{border-color:var(--indigo)}
+.btn-white{background:#fff;color:var(--pink-deep)}
+.btn-sm{min-height:44px;padding:0 18px;font-size:15px}
+.btn svg{width:20px;height:20px;flex:none}
+.tag{display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border-radius:var(--radius-pill);font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;background:var(--pink-soft);color:var(--pink-deep)}
+.tag.sky{background:var(--sky-soft);color:var(--sky-deep)}
+.tag.yellow{background:var(--yellow);color:var(--indigo-deep)}
+.dot{width:8px;height:8px;border-radius:50%;background:currentColor;animation:pulse 1.8s infinite}
+@keyframes pulse{50%{opacity:.35}}
+
+/* ===== Cards ===== */
+.card{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);padding:var(--space-lg);box-shadow:var(--shadow-card);
+  transition:transform var(--dur-hover) var(--ease),box-shadow var(--dur-hover) var(--ease)}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow-card-hover)}
+.card p{margin:8px 0 0;color:var(--muted)}
+.card.pop{padding-top:88px;margin-top:44px}
+.card.pop .ico{position:absolute;top:-40px;left:22px;width:104px;height:104px;object-fit:contain;filter:drop-shadow(0 14px 14px rgba(37,23,118,.22))}
+
+/* ===== Reveal ===== */
+.rv{opacity:0;transform:translateY(28px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease);transition-delay:calc(var(--d,0) * 85ms)}
+.rv.in{opacity:1;transform:none}
+.bob{animation:bob 3.6s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-10px)}}
+.wiggle:hover{animation:wig .6s var(--ease)}
+@keyframes wig{25%{transform:rotate(-6deg)}75%{transform:rotate(6deg)}}
+
+/* ===== S00 Nav ===== */
+.nav{position:fixed;inset:0 0 auto 0;height:var(--nav-h);z-index:50;display:flex;align-items:center;transition:background .3s,box-shadow .3s}
+.nav.solid{background:rgba(246,250,254,.9);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--line)}
+.nav .wrap{display:flex;align-items:center;gap:24px;width:100%}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:900;color:var(--indigo);font-size:15px;line-height:1.15}
+.brand img{height:46px;width:auto;transition:transform var(--dur-hover) var(--ease)}.brand:hover img{transform:rotate(-8deg) scale(1.06)}
+.brand small{display:block;font-weight:600;color:var(--muted);font-size:12px}
+.nav ul{display:flex;gap:22px;list-style:none;margin:0 0 0 auto;padding:0}
+.nav ul a{text-decoration:none;font-weight:700;font-size:15px;color:var(--indigo);opacity:.75}
+.nav ul a:hover,.nav ul a.act{opacity:1;color:var(--pink)}
+.nav.dark ul a{color:#fff;opacity:.85}.nav.dark ul a:hover{color:var(--yellow);opacity:1}
+.progress{position:absolute;left:0;bottom:0;height:3px;background:var(--pink);width:0}
+@media (max-width:860px){.nav ul{display:none}.nav .btn{margin-left:auto;white-space:nowrap}.brand small{display:none}}
+
+
+/* ===== S01 Hero ===== */
+.hero{position:relative;z-index:0;overflow:hidden;color:var(--on-indigo);padding-top:calc(var(--nav-h) + clamp(24px,5vw,56px));padding-bottom:calc(var(--pad) * .5 + 48px);min-height:100svh;display:flex;align-items:center;
+  background:radial-gradient(circle at 78% 42%,rgba(69,53,184,.9) 0,transparent 52%),linear-gradient(165deg,var(--indigo) 0%,var(--indigo-deep) 100%)}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(rgba(255,255,255,.09) 1px,transparent 1.2px) 0 0/14px 14px;pointer-events:none}
+.hero .wrap{position:relative;will-change:transform,opacity}
+.hero .wrap{display:grid;grid-template-columns:1.12fr .88fr;gap:clamp(24px,4vw,56px);align-items:center;width:100%}
+.hero-txt{transform:rotate(-3deg);transform-origin:left center}
+.hero .pre{display:inline-block;margin:0;padding:10px 18px;border-radius:var(--radius-pill);background:#fff;border:1.5px solid #fff;color:var(--indigo);font-weight:800;font-size:clamp(15px,1.6vw,19px);box-shadow:5px 5px 0 var(--pink)}
+.hero h1 .nw{white-space:nowrap}
+.hero h1{font-size:clamp(38px,min(5.4vw,10vh),80px);line-height:.98;letter-spacing:-.01em;text-transform:uppercase;margin:22px 0 22px;color:#fff}
+.hero h1 .sel{margin-bottom:6px;white-space:nowrap;padding:.24em .16em .04em;line-height:1.08}
+.hero .lead{max-width:44ch;color:var(--on-indigo-soft)}
+.hero .btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.45)}
+.hero .btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+.hero .lead{margin:0 0 26px}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px}
+.meta{display:flex;flex-wrap:wrap;gap:8px 22px;margin:26px 0 0;padding:0;list-style:none;color:var(--muted);font-weight:600;font-size:15px}
+.meta li{display:flex;align-items:center;gap:8px}
+.meta li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--pink)}
+.hero-art{position:relative;aspect-ratio:1/1;max-width:560px;width:100%;justify-self:center}
+.hero-art .circle{position:absolute;inset:6%;border-radius:50%;background:radial-gradient(circle at 30% 25%,#F77DA6,var(--pink) 45%,var(--pink-deep) 100%);box-shadow:0 40px 80px -30px rgba(239,74,130,.6)}
+.hero-art .blob{position:absolute;width:24%;aspect-ratio:1;border-radius:50%;background:var(--sky);right:2%;top:8%}
+.hero-art .ring{position:absolute;inset:0;border-radius:50%;border:2px dashed rgba(255,255,255,.22);animation:spin 60s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hero-art .h-book{position:absolute;left:-4%;top:10%;width:108%;max-width:none;z-index:2;filter:drop-shadow(0 30px 30px rgba(20,10,80,.35));animation:bob 5s ease-in-out infinite}
+.hero-art .h-star{position:absolute;z-index:3}
+.h-star.s1{width:14%;left:2%;top:4%}.h-star.s2{width:12%;right:4%;bottom:10%}.h-star.s3{width:10%;right:12%;top:2%}
+
+/* CSS book (bìa tạm, thay bằng ảnh bìa thật) */
+.book3d{--w:min(52%,290px);position:absolute;left:50%;top:50%;width:var(--w);aspect-ratio:3/4.2;transform:translate(-58%,-52%) rotateY(-24deg) rotateX(4deg);
+  transform-style:preserve-3d;perspective:1200px;z-index:2;transition:transform .8s var(--ease)}
+.hero-art:hover .book3d{transform:translate(-58%,-54%) rotateY(-12deg) rotateX(2deg)}
+.cover{position:absolute;inset:0;border-radius:6px 14px 14px 6px;overflow:hidden;background:linear-gradient(160deg,#fff 0%,var(--sky-soft) 100%);
+  box-shadow:var(--shadow-shot),inset 6px 0 0 rgba(37,23,118,.12);display:flex;flex-direction:column;padding:9% 9% 0}
+.cover small{font-size:clamp(8px,1vw,11px);font-weight:800;letter-spacing:.14em;color:var(--pink)}
+.cover strong{font-size:clamp(15px,2.2vw,26px);line-height:1.02;font-weight:900;color:var(--indigo);text-transform:uppercase;margin-top:6%}
+.cover img{margin-top:auto;width:78%;align-self:center}
+.cover::after{content:"";position:absolute;left:0;top:0;bottom:0;width:7%;background:linear-gradient(90deg,var(--pink),var(--pink-deep))}
+.book3d .pages{position:absolute;top:2%;bottom:2%;right:-5%;width:6%;background:repeating-linear-gradient(90deg,#fff 0 2px,#e9e6f6 2px 3px);transform:rotateY(70deg);transform-origin:left;border-radius:0 4px 4px 0}
+@media (max-width:860px){
+  .hero .wrap{grid-template-columns:1fr}
+  .hero-art{max-width:min(320px,38svh);order:-1}
+  .hero .wrap{gap:12px}
+  .hero-txt{transform:rotate(-2deg)}
+}
+
+/* ===== S02 Audience: phủ lên hero khi cuộn ===== */
+#ve-sach{position:relative;z-index:2;margin-top:-48px;border-radius:clamp(28px,4vw,48px) clamp(28px,4vw,48px) 0 0;
+  background:radial-gradient(rgba(37,23,118,.11) 1px,transparent 1.2px) 0 0/14px 14px,linear-gradient(180deg,var(--bg-a),var(--bg-b));box-shadow:0 -24px 50px -24px rgba(10,5,50,.55)}
+main>section:not(.hero){position:relative;z-index:1}
+.aud{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:var(--space-md);align-items:stretch}
+.aud .card.main{background:var(--indigo);border:0;color:var(--on-indigo);padding-right:38%;overflow:visible}
+.aud .card.main h3{color:#fff;font-size:clamp(22px,2.3vw,28px)}
+.aud .card.main p{color:var(--on-indigo-soft)}
+.aud .card.main .tag{margin-bottom:12px}
+.aud .card.main .m{position:absolute;right:-6%;bottom:-6%;width:46%;max-width:240px}
+@media (max-width:960px){.aud{grid-template-columns:1fr}.aud .card.main{padding-right:var(--space-lg);padding-bottom:180px}.aud .card.main .m{width:180px;right:10px}}
+
+/* ===== S03 Why (sky) ===== */
+.why{background:var(--sky);overflow:hidden}
+.why h2{color:var(--indigo-deep)}.why h2 .l2{color:#fff}
+.why .kicker{background:#fff;padding:7px 14px;border-radius:var(--radius-pill);font-size:14px}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,64px);align-items:center}
+.why .story{margin-top:20px;color:var(--indigo-deep);font-size:clamp(17px,1.6vw,19px);font-weight:500}
+.why .story p{margin:0 0 14px}
+.stage-bubbles{position:relative;min-height:440px}
+.stage-bubbles .m{position:absolute;right:0;bottom:0;width:min(52%,260px)}
+.bubble{position:absolute;background:#fff;color:var(--indigo);font-weight:800;padding:14px 18px;border-radius:22px;box-shadow:var(--shadow-card);max-width:230px;font-size:15px;line-height:1.35}
+.bubble::after{content:"";position:absolute;bottom:-8px;width:16px;height:16px;background:#fff;transform:rotate(45deg)}
+.bubble{max-width:min(240px,50%)}
+.b1{left:0;top:4%}.b1::after{right:34px}
+.b2{left:10%;top:36%}.b2::after{right:40px}
+.b3{left:0;top:68%}.b3::after{right:30px}
+.strip{margin:clamp(40px,6vw,72px) calc(50% - 50vw) 0;overflow:hidden;padding:20px 0}
+.strip-row{display:flex;gap:clamp(14px,2vw,28px);width:max-content;padding-left:8vw}
+.strip-row img{width:clamp(220px,26vw,360px);border-radius:var(--radius-md);box-shadow:var(--shadow-shot);border:6px solid #fff;background:#fff}
+.strip-row img:nth-child(odd){transform:rotate(-3deg)}.strip-row img:nth-child(even){transform:rotate(2.5deg) translateY(14px)}
+.note{position:relative;background:#fff;border-radius:var(--radius-xl);padding:clamp(24px,3.5vw,40px);margin-top:clamp(40px,6vw,72px);box-shadow:var(--shadow-shot);display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:start}
+.note .ico{width:84px}
+.note p{margin:0 0 10px;font-size:clamp(17px,1.6vw,20px);font-weight:500;color:var(--indigo)}
+.note .sign{font-weight:800;color:var(--pink);font-size:15px;margin:0}
+@media (max-width:860px){.why-grid{grid-template-columns:1fr}.stage-bubbles{min-height:400px}.note{grid-template-columns:1fr}}
+
+/* ===== S04 Inside: 4 chặng (scrollytelling) ===== */
+.journey{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,72px)}
+.j-visual{position:sticky;top:calc(var(--nav-h) + 4vh);height:min(78vh,620px);display:flex;align-items:center;justify-content:center}
+.j-stage{position:relative;width:100%;height:100%;border-radius:var(--radius-xl);background:#fff;border:1px solid var(--line);box-shadow:var(--shadow-card);overflow:hidden}
+.j-stage .ground{position:absolute;left:12%;right:12%;bottom:14%;height:18px;border-radius:50%;background:rgba(37,23,118,.1);transition:transform .8s var(--ease)}
+.j-stage .jm{position:absolute;left:50%;bottom:15%;height:56%;width:auto;max-width:80%;object-fit:contain;transform-origin:50% 100%;opacity:0;transform:translateX(-50%) scale(.6);transition:opacity .5s var(--ease),transform .9s var(--ease)}
+.j-stage .jm.on{opacity:1}
+.j-stage .lvl{position:absolute;left:24px;top:22px;right:24px;display:flex;gap:8px}
+.j-stage .lvl span{flex:1;height:6px;border-radius:6px;background:var(--sky-soft);overflow:hidden}
+.j-stage .lvl span::after{content:"";display:block;height:100%;width:0;background:var(--pink);transition:width .6s var(--ease)}
+.j-stage .lvl span.done::after{width:100%}
+.j-stage .badge{position:absolute;left:24px;top:46px;font-weight:900;color:var(--indigo);font-size:15px}
+.j-stage .spark{position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .6s}
+.j-stage[data-s="3"] .spark{opacity:1}
+.spark i{position:absolute;width:14px;height:14px;background:var(--yellow);clip-path:polygon(50% 0,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0 50%,38% 38%);animation:tw 2s infinite}
+.spark i:nth-child(1){left:18%;top:28%}.spark i:nth-child(2){right:20%;top:20%;animation-delay:.5s}.spark i:nth-child(3){right:14%;top:52%;animation-delay:1s}.spark i:nth-child(4){left:14%;top:58%;animation-delay:1.4s}
+@keyframes tw{50%{transform:scale(.3) rotate(45deg);opacity:.4}}
+.j-steps{display:flex;flex-direction:column}
+.j-step{min-height:62vh;display:flex;flex-direction:column;justify-content:center;padding:24px 0;opacity:.35;transition:opacity .5s var(--ease)}
+.j-step.on{opacity:1}
+.j-step .no{font-size:13px;font-weight:900;letter-spacing:.12em;color:var(--pink);text-transform:uppercase}
+.j-step h3{font-size:clamp(24px,2.8vw,34px);font-weight:900;margin:8px 0 4px}
+.j-step .en{font-weight:700;color:var(--sky-deep);margin:0 0 12px}
+.j-step p{margin:0;color:var(--muted);font-size:17px;max-width:46ch}
+.j-step .eg{display:inline-block;margin-top:14px;font-size:14px;font-weight:700;color:var(--indigo);background:var(--sky-soft);padding:8px 12px;border-radius:10px}
+.j-mini{display:none}
+@media (max-width:860px){
+  .journey{grid-template-columns:1fr}
+  .j-visual{top:var(--nav-h);height:36vh;z-index:2;margin:0 calc(var(--gut) * -1);padding:8px var(--gut);background:linear-gradient(var(--bg-b) 80%,transparent)}
+  .j-step{min-height:54vh}
+}
+.head-row{display:flex;align-items:flex-end;justify-content:space-between;gap:24px}
+.hr-m{width:clamp(150px,18vw,240px);margin-bottom:clamp(24px,4vw,48px)}
+.card .peek{position:absolute;right:10px;top:-58px;width:96px;height:auto;filter:drop-shadow(0 10px 10px rgba(37,23,118,.18));transition:transform .4s var(--ease)}
+.card:hover .peek{transform:translateY(-6px) rotate(-6deg)}
+.chapters-wrap{position:relative;padding-top:20px}
+.ch-m{position:absolute;right:16px;top:-92px;width:130px;z-index:2}
+@media (max-width:760px){.hr-m{display:none}.ch-m{width:100px;top:-70px}}
+.ideas{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-md);margin-top:clamp(40px,6vw,80px)}
+.ideas ul{margin:12px 0 0;padding-left:18px;color:var(--muted);font-size:15px}
+.ideas li{margin:4px 0}
+@media (max-width:1060px){.ideas{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:620px){.ideas{grid-template-columns:1fr}}
+
+/* Mục lục */
+.toc{margin-top:clamp(40px,6vw,72px);display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(24px,4vw,56px);align-items:start}
+.toc .facts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}
+.toc-img{width:110%;max-width:none;margin:18px 0 0 -6%;filter:drop-shadow(0 24px 24px rgba(20,10,80,.25))}
+.toc .facts div{background:#fff;border:1px solid var(--line);border-radius:var(--radius-md);padding:16px}
+.toc .facts b{display:block;font-size:30px;font-weight:900;color:var(--indigo);line-height:1}
+.toc .facts span{font-size:14px;color:var(--muted);font-weight:600}
+.chapters{border-radius:var(--radius-lg);background:#fff;border:1px solid var(--line);overflow:hidden;box-shadow:var(--shadow-card)}
+.chapters details{border-top:1px solid var(--line)}
+.chapters details:first-child{border-top:0}
+.chapters summary{list-style:none;display:flex;align-items:center;gap:14px;padding:18px 22px;cursor:pointer;font-weight:800;color:var(--indigo)}
+.chapters summary::-webkit-details-marker{display:none}
+.chapters summary .n{flex:none;display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--sky-soft);color:var(--indigo);font-weight:900;font-size:14px}
+.chapters summary .t{flex:1}
+.chapters summary .pg{font-size:13px;color:var(--muted);font-weight:600}
+.chapters summary::after{content:"+";font-size:22px;color:var(--pink);transition:transform .3s var(--ease)}
+.chapters details[open] summary::after{transform:rotate(45deg)}
+.chapters details.free summary .n{background:var(--pink);color:#fff}
+.chapters ul{margin:0;padding:0 22px 18px 70px;color:var(--muted)}
+.chapters li{margin:5px 0}
+.chapters .tag{font-size:10px;padding:5px 8px}
+@media (max-width:860px){.toc{grid-template-columns:1fr}.chapters summary .pg{display:none}}
+
+/* ===== S05 Đọc thử (indigo) ===== */
+.read{background:var(--indigo);color:var(--on-indigo);overflow:hidden}
+.read h2{color:#fff}.read h2 .l2{color:var(--on-indigo-soft)}
+.read .lead{color:var(--on-indigo-soft)}
+.read .kicker{color:var(--yellow)}
+.read-grid{display:grid;grid-template-columns:1fr;gap:clamp(24px,3vw,40px)}
+.read-side{display:grid;grid-template-columns:auto 1fr 1fr;gap:8px clamp(20px,3vw,40px);align-items:start}
+.read-side .m{grid-row:span 2;align-self:center}
+.read-side .col h3{margin-top:0}
+.read-side .hint{grid-column:2 / -1;margin-top:6px}
+@media (max-width:760px){.read-side{grid-template-columns:1fr}.read-side .m{grid-row:auto}.read-side .hint{grid-column:auto}}
+.read-side .m{width:170px;margin:-10px 0 10px}
+.read-side h3{color:#fff;font-size:18px;margin:22px 0 8px}
+.read-side ol{margin:0;padding-left:20px;color:var(--on-indigo-soft)}
+.read-side li{margin:4px 0}
+.read-side .hint{font-size:14px;color:var(--on-indigo-soft);margin-top:22px}
+.reader{position:relative;border-radius:var(--radius-xl);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);padding:clamp(14px,2vw,22px);min-height:420px;display:flex;flex-direction:column}
+.reader .bar{display:flex;align-items:center;gap:8px;margin-bottom:12px;color:var(--on-indigo)}
+.reader .bar .ttl{font-weight:800;font-size:15px;margin-right:auto;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ibtn{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);color:#fff;text-decoration:none}
+.ibtn:hover{background:rgba(255,255,255,.16)}
+.ibtn svg{width:20px;height:20px}
+.ibtn[disabled]{opacity:.35;cursor:default}
+.count{font-weight:700;font-size:14px;min-width:70px;text-align:center;font-variant-numeric:tabular-nums}
+.stage-book{position:relative;flex:1;display:flex;align-items:center;justify-content:center;min-height:360px}
+.flip{margin:0 auto}
+.flip .page{background:#fff;overflow:hidden}
+.flip .page canvas{width:100%;height:100%;display:block}
+.flip .page .ph{position:absolute;inset:0;display:grid;place-items:center;color:#b3acd6;font-weight:700;font-size:13px;background:repeating-linear-gradient(-45deg,#fff 0 12px,#f6f4fc 12px 24px)}
+.flip .page.end{background:var(--pink);color:#fff;display:flex}
+.flip .page.end .in{margin:auto;padding:12%;text-align:center}
+.flip .page.end h3{color:#fff;font-size:clamp(18px,2.4vw,26px)}
+.flip .page.end p{color:rgba(255,255,255,.9);margin:10px 0 18px;font-size:clamp(13px,1.3vw,15px)}
+.flip .page.end img{width:44%;margin:0 auto 10px}
+.flip .page.more{background:var(--indigo);color:var(--on-indigo);display:flex}
+.flip .page.more .in{margin:auto;padding:12%}
+.flip .page.more ol{margin:16px 0 0;padding-left:22px;font-weight:700;font-size:clamp(13px,1.4vw,17px);line-height:1.45}
+.flip .page.more li{margin:8px 0}
+.poster{display:flex;flex-direction:column;align-items:center;gap:20px;text-align:center}
+.poster .book3d{position:relative;left:auto;top:auto;transform:rotateY(-18deg);--w:200px}
+.poster .cover strong{font-size:20px}
+.poster:hover .book3d{transform:rotateY(-6deg)}
+.poster p{margin:0;color:var(--on-indigo-soft);font-size:14px}
+.loading{display:none;flex-direction:column;align-items:center;gap:14px;color:var(--on-indigo-soft);font-weight:600}
+.loading .spin{width:44px;height:44px;border-radius:50%;border:4px solid rgba(255,255,255,.18);border-top-color:var(--yellow);animation:spin 1s linear infinite}
+.reader.is-loading .loading{display:flex}.reader.is-loading .poster{display:none}
+.reader.is-ready .poster,.reader.is-error .poster{display:none}
+.err{display:none;text-align:center;max-width:380px}
+.reader.is-error .err{display:block}
+.err p{color:var(--on-indigo-soft)}
+.reader .bar .ctl{display:none;gap:8px;align-items:center}
+.reader.is-ready .bar .ctl{display:flex}
+/* Toàn màn hình */
+.reader.full{position:fixed;inset:0;z-index:100;border-radius:0;background:var(--indigo-deep);padding:12px clamp(12px,3vw,32px) 16px;border:0}
+body.lock{overflow:hidden}
+.read-end{display:none}
+@media (max-width:960px){.read-grid{grid-template-columns:1fr}.reader{order:-1}.read-side .m{width:130px}.reader .bar .ttl{display:none}}
+
+/* ===== S06 Tác giả ===== */
+.authors{display:grid;grid-template-columns:1fr 1.3fr 1fr;gap:var(--space-md);align-items:end}
+.au{text-align:center}
+.au .ph{position:relative;margin:0 auto 16px;width:150px;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 30% 25%,var(--violet),var(--indigo));display:grid;place-items:center;color:var(--yellow);font-weight:900;font-size:36px;overflow:hidden}
+.au.lead-au .ph{width:min(230px,60vw)}
+.au.lead-au .ph::after{content:"";position:absolute;width:30%;aspect-ratio:1;border-radius:50%;background:var(--pink);right:-6%;top:-4%}
+.au .ph img{position:relative;z-index:1;width:100%;height:100%;object-fit:cover}
+.au.lead-au .ph::after{z-index:2}
+.au .role{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--pink)}
+.au h3{font-size:clamp(20px,2vw,26px);margin:6px 0 4px}
+.au p{margin:0 auto;color:var(--muted);max-width:32ch;font-size:15px}
+.co{margin-top:clamp(32px,5vw,56px);display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+.co .chip{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:var(--radius-pill);padding:8px 18px 8px 8px;box-shadow:var(--shadow-card)}
+.co .chip b{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--sky-soft);color:var(--indigo);font-weight:900;font-size:14px}
+.co .chip span{font-weight:700;color:var(--indigo);font-size:15px}.co .chip small{display:block;color:var(--muted);font-weight:600;font-size:12px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-md);margin-top:clamp(40px,6vw,64px)}
+.stats div{text-align:center;padding:20px;border-radius:var(--radius-lg);background:var(--sky-soft)}
+.stats b{display:block;font-size:clamp(28px,3vw,38px);font-weight:900;color:var(--indigo);line-height:1}
+.stats span{font-size:14px;color:var(--muted);font-weight:600}
+.authors-m{position:absolute;right:max(var(--gut),calc((100vw - var(--wrap))/2));top:calc(var(--pad) - 20px);width:120px}
+@media (max-width:860px){.authors{grid-template-columns:1fr;gap:36px}.au.lead-au{order:-1}.stats{grid-template-columns:1fr 1fr}.authors-m{display:none}}
+
+/* ===== S06a Đội ngũ (giấy note) ===== */
+.team{overflow:hidden}
+.team-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(28px,5vw,72px);align-items:start}
+.team-grid .rv{--r:0deg;transform:translateY(28px) rotate(var(--r))}
+.team-grid .rv.in{transform:rotate(var(--r))}
+.paper{position:relative;background:#FFF8E6;border:1.5px solid var(--indigo);border-radius:6px;padding:clamp(22px,3vw,34px) clamp(20px,3vw,34px) clamp(22px,3vw,34px) clamp(44px,5vw,58px);
+  box-shadow:8px 10px 0 rgba(37,23,118,.12);background-image:radial-gradient(circle,#cfc7ae 3.5px,transparent 4px);background-size:20px 34px;background-repeat:repeat-y;background-position:10px 18px}
+.paper::before,.paper::after{content:"";position:absolute;width:84px;height:26px;background:rgba(232,232,244,.9);border:1px solid rgba(37,23,118,.25)}
+.paper::before{top:-12px;right:22%;transform:rotate(6deg)}
+.paper::after{bottom:-12px;left:10%;transform:rotate(-8deg)}
+.p-title{display:flex;align-items:center;gap:14px;background:#fff;border:1.5px solid var(--indigo);padding:16px 18px;font-weight:800;color:var(--indigo);text-transform:uppercase;font-size:clamp(15px,1.6vw,19px);line-height:1.25;transform:rotate(1.5deg)}
+.p-title img{width:44px;flex:none}
+.p-box{margin-top:18px;background:#fff;border:1.5px solid var(--indigo);padding:20px;font-weight:600;color:var(--indigo);font-size:clamp(16px,1.6vw,19px);line-height:1.5;transform:rotate(-2deg)}
+.photo{position:relative;margin:18px 0 0 8%;background:#fff;padding:8px;border-radius:10px;box-shadow:var(--shadow-shot);z-index:2}
+.photo img{border-radius:6px;width:100%;aspect-ratio:3/2;object-fit:cover}
+.photo .ph-logo{position:absolute;right:16px;top:14px;width:34px;aspect-ratio:1;border-radius:50%}
+.photo.small{width:72%;margin:22px 0 0 auto}
+.photo.small img{aspect-ratio:4/3}
+.photo .doodle{position:absolute;left:-46px;bottom:-26px;width:80px;aspect-ratio:auto;transform:rotate(-14deg)}
+.post{position:relative;background:#fff;border:1.5px solid var(--indigo);border-radius:22px;padding:0 0 22px;max-width:380px;margin-left:auto;box-shadow:var(--shadow-card)}
+.post-h{text-align:center;font-weight:800;color:var(--indigo);padding:14px;border-bottom:1px solid var(--line);font-size:15px}
+.post-who{display:flex;align-items:center;gap:10px;padding:16px 20px 6px}
+.post-who img{width:40px;border-radius:50%}
+.post-who b{color:var(--pink);font-weight:800}
+.post p{margin:6px 20px 14px;color:var(--ink);font-size:16px}
+.post-tags{display:flex;gap:8px;flex-wrap:wrap;padding:0 20px 0 120px}
+.post-tags span{border:1.5px solid var(--line);border-radius:var(--radius-pill);padding:7px 12px;font-size:13px;font-weight:700;color:var(--indigo)}
+.post-av{position:absolute;left:-34px;bottom:-40px;width:130px;aspect-ratio:1;border-radius:50%;background:#fff;border:3px solid var(--indigo);overflow:hidden;box-shadow:8px 8px 0 rgba(37,23,118,.25)}
+.post-av img{width:100%;height:100%;object-fit:cover}
+.quote{margin-top:72px}
+.quote p{margin:0 0 18px;font-weight:800;color:var(--indigo);font-size:clamp(19px,2vw,24px);line-height:1.35}
+@media (max-width:900px){
+  .team-grid{grid-template-columns:1fr}
+  .post{margin:10px auto 0 40px}
+  .post-av{width:96px;left:-30px;bottom:-30px}.post-tags{padding-left:80px}
+  .photo{margin-left:4%}.photo.small{width:84%}
+}
+
+/* ===== S07 Đăng ký (pink) ===== */
+.signup{padding:var(--pad) 0}
+.signup-box{position:relative;background:var(--pink);color:#fff;border-radius:clamp(24px,4vw,40px);padding:clamp(32px,6vw,72px);display:grid;grid-template-columns:1.3fr .7fr;gap:32px;align-items:center;overflow:hidden}
+.signup-box::before{content:"";position:absolute;width:420px;aspect-ratio:1;border-radius:50%;background:rgba(255,255,255,.12);right:-120px;top:-160px}
+.signup-box h2{color:#fff}.signup-box h2 .l2{color:var(--pink-soft)}
+.signup-box .kicker{color:#fff;background:rgba(255,255,255,.18);padding:7px 14px;border-radius:var(--radius-pill);font-size:14px}
+.signup-box p{font-size:clamp(16px,1.6vw,19px);font-weight:500;max-width:52ch}
+.ticks{list-style:none;padding:0;margin:20px 0 28px;display:grid;gap:10px}
+.ticks li{display:flex;gap:12px;align-items:flex-start;font-weight:700}
+.ticks li::before{content:"✓";flex:none;display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:#fff;color:var(--pink);font-weight:900;font-size:14px}
+.signup-box .small{font-size:14px;opacity:.85;margin:12px 0 0}
+.signup-box .m{position:relative;width:min(100%,300px);justify-self:center}
+@media (max-width:860px){.signup-box{grid-template-columns:1fr}.signup-box .m{width:180px;order:-1}}
+
+/* ===== S08 Quiz ===== */
+.quiz{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(24px,4vw,56px);align-items:center}
+.quiz .m{width:min(260px,70%)}
+.qbox{background:#fff;border:1px solid var(--line);border-radius:var(--radius-xl);box-shadow:var(--shadow-card);padding:clamp(22px,3.5vw,40px);min-height:360px;display:flex;flex-direction:column}
+.qtop{display:flex;justify-content:space-between;align-items:center;font-weight:800;color:var(--muted);font-size:14px}
+.qbar{height:8px;border-radius:8px;background:var(--sky-soft);margin:12px 0 26px;overflow:hidden}
+.qbar i{display:block;height:100%;width:0;background:var(--pink);transition:width .5s var(--ease)}
+.qtext{font-size:clamp(20px,2.3vw,28px);font-weight:900;color:var(--indigo);line-height:1.25;margin:0 0 auto;min-height:3.8em}
+.qans{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:26px}
+.qans button{min-height:58px;border-radius:var(--radius-md);border:2px solid var(--line);background:#fff;font-weight:800;font-size:17px;color:var(--indigo);transition:all var(--dur-hover) var(--ease)}
+.qans button:hover{border-color:var(--indigo);transform:translateY(-2px)}
+.qans button.yes:hover{background:var(--sky-soft)}
+.qback{align-self:flex-start;margin-top:14px;background:none;border:0;color:var(--muted);font-weight:700;font-size:14px;padding:8px 0;min-height:44px}
+.qres{display:none;text-align:center;margin:auto 0}
+.qbox.done .qq{display:none}.qbox.done .qres{display:block}
+.qres .badge{display:inline-block;background:var(--pink);color:#fff;font-weight:900;font-size:28px;padding:6px 20px;border-radius:var(--radius-pill);margin-bottom:12px}
+.qres h3{font-size:clamp(20px,2.2vw,26px);font-weight:900;margin:0 0 20px}
+.qres .cta-row{justify-content:center}
+/* Popup kết quả */
+.qmodal{border:0;padding:0;background:transparent;max-width:min(960px,calc(100vw - 24px));width:100%;max-height:calc(100svh - 24px);overflow:visible}
+.qmodal::backdrop{background:rgba(27,18,109,.55);backdrop-filter:blur(3px)}
+.qm{position:relative;background:#fff;border-radius:clamp(22px,3vw,32px);padding:clamp(28px,4vw,48px) clamp(18px,3.5vw,40px) clamp(22px,3vw,36px);text-align:center;max-height:calc(100svh - 24px);overflow:auto;box-shadow:var(--shadow-shot)}
+.qmodal[open] .qm{animation:qpop .45s var(--ease)}
+@keyframes qpop{from{opacity:0;transform:translateY(24px) scale(.97)}}
+.qm .x{position:absolute;right:14px;top:14px;width:44px;height:44px;border-radius:50%;border:0;background:var(--bg-b);color:var(--indigo);font-size:22px;font-weight:700;display:grid;place-items:center}
+.qm .x:hover{background:var(--sky-soft)}
+.qm h3{font-size:clamp(22px,3vw,34px);font-weight:900;color:var(--pink);line-height:1.35;margin:0 auto 12px;padding:0 44px;text-wrap:balance}
+.qm h3 .badge{display:inline-block;background:var(--pink);color:#fff;border-radius:var(--radius-pill);padding:2px 16px;margin:0 6px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.qm .sub{color:var(--muted);font-size:clamp(15px,1.5vw,17px);margin:0 auto 6px;max-width:52ch}
+.qm .chap{display:inline-block;margin:8px 0 26px;font-size:14px;font-weight:700;color:var(--sky-deep);background:var(--sky-soft);padding:8px 12px;border-radius:10px}
+.qm .opts{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,2vw,22px);text-align:center}
+.qopt{display:flex;flex-direction:column;align-items:center;border-radius:var(--radius-lg);padding:14px 14px 22px;text-decoration:none;transition:transform var(--dur-hover) var(--ease),box-shadow var(--dur-hover) var(--ease)}
+.qopt:hover{transform:translateY(-4px);box-shadow:var(--shadow-card-hover)}
+.qopt.self{background:#FFF6E3}.qopt.pro{background:var(--pink-soft)}
+.qopt .art{width:100%;aspect-ratio:16/11;border-radius:var(--radius-sm);background:#fff;display:grid;place-items:center;position:relative;overflow:hidden;margin-bottom:16px}
+.qopt .art img{height:72%;max-width:78%;width:auto;object-fit:contain;position:relative}
+.qopt.self .art::before,.qopt.pro .art::before{content:"";position:absolute;width:62%;aspect-ratio:1;border-radius:50%}
+.qopt.self .art::before{background:var(--sky-soft)}.qopt.pro .art::before{background:var(--bg-a)}
+.qopt .art .ico{position:absolute;width:24%;height:auto;right:8%;top:10%}
+.qopt b{font-size:clamp(18px,1.9vw,22px);font-weight:900;color:var(--indigo)}
+.qopt span{color:var(--muted);font-size:15px;margin-top:8px;max-width:34ch}
+.qopt em{font-style:normal;margin-top:14px;font-weight:800;color:var(--pink-deep);font-size:15px}
+@media (max-width:640px){
+  .qm .opts{grid-template-columns:1fr}
+  .qopt{display:grid;grid-template-columns:96px 1fr;column-gap:14px;align-items:center;text-align:left;padding:12px}
+  .qopt .art{grid-row:span 3;aspect-ratio:1;margin:0}
+  .qopt .art .ico{display:none}
+  .qopt .art img{height:80%;max-width:86%}
+  .qopt span{margin-top:4px;font-size:14px}.qopt em{margin-top:8px}
+}
+@media (max-width:860px){.quiz{grid-template-columns:1fr}.quiz .m{width:150px}}
+
+/* ===== S09 TELOS ===== */
+.svc{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-md)}
+.svc .card{padding:clamp(26px,3.5vw,40px);display:flex;flex-direction:column;align-items:flex-start;gap:10px}
+.svc .card h3{font-size:clamp(22px,2.4vw,30px);font-weight:900}
+.svc .card p{margin:0 0 10px;font-size:16px}
+.svc .card.ag{background:var(--indigo);border:0}.svc .card.ag h3{color:#fff}.svc .card.ag p{color:var(--on-indigo-soft)}
+.svc .card .lk{margin-top:auto;font-weight:800;text-decoration:none;color:var(--pink);display:inline-flex;gap:8px;align-items:center;min-height:44px}
+.svc .card.ag .lk{color:var(--yellow)}
+.svc .card .lk:hover{gap:12px}
+.svc-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px}
+.svc-head .m{width:150px;margin-bottom:clamp(24px,4vw,48px)}
+@media (max-width:760px){.svc{grid-template-columns:1fr}.svc-head .m{display:none}}
+
+/* ===== S10 FAQ ===== */
+.faq{display:grid;grid-template-columns:.7fr 1.3fr;gap:clamp(24px,4vw,56px);align-items:start}
+.faq .m{width:180px;margin-top:20px}
+.faq details{background:#fff;border:1px solid var(--line);border-radius:var(--radius-md);margin-bottom:12px;box-shadow:var(--shadow-card)}
+.faq summary{list-style:none;cursor:pointer;padding:20px 56px 20px 22px;position:relative;font-weight:800;color:var(--indigo);font-size:17px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:22px;top:50%;transform:translateY(-50%);font-size:24px;color:var(--pink);transition:transform .3s var(--ease)}
+.faq details[open] summary::after{transform:translateY(-50%) rotate(45deg)}
+.faq details p{margin:0;padding:0 22px 20px;color:var(--muted)}
+@media (max-width:860px){.faq{grid-template-columns:1fr}.faq .m{display:none}}
+
+/* ===== S11 Footer ===== */
+footer{background:var(--indigo-deep);color:var(--on-indigo-soft);padding:clamp(48px,7vw,80px) 0 28px}
+.foot{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px}
+footer h3{color:#fff;font-size:18px;margin-bottom:12px}
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+footer a{color:var(--on-indigo);text-decoration:none}
+footer a:hover{color:var(--yellow)}
+footer .tags{margin-top:16px;color:var(--on-indigo-soft);font-size:14px}
+footer .copy{border-top:1px solid rgba(255,255,255,.12);margin-top:40px;padding-top:20px;font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+@media (max-width:760px){.foot{grid-template-columns:1fr}}
+
+/* Nút nổi mobile */
+.fab{position:fixed;left:16px;right:16px;bottom:14px;z-index:40;display:none;transform:translateY(120%);transition:transform .4s var(--ease)}
+.fab.show{transform:none}
+@media (max-width:760px){.fab{display:flex;align-items:flex-end;gap:6px}.fab .btn{flex:1}.fab img{width:54px;margin-bottom:-4px;transform:rotate(-8deg);filter:drop-shadow(0 8px 8px rgba(20,10,80,.3))}}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .rv{opacity:1;transform:none}
+  .sel{clip-path:none}.sel i{transform:scale(1)}
+  [data-speed],[data-sx]{translate:none!important}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ S00 · Thanh điều hướng ============ -->
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Hành trình của Nhân vật thương hiệu · Về đầu trang"><img src="assets/img/mascot-nav.webp" alt=""></a>
+    <ul>
+      <li><a href="#ve-sach">Về sách</a></li>
+      <li><a href="#doc-thu">Đọc thử</a></li>
+      <li><a href="#doi-ngu">Đội ngũ</a></li>
+      <li><a href="#quiz">Kiểm tra mascot</a></li>
+      <li><a href="#hoi-dap">Hỏi đáp</a></li>
+    </ul>
+    <a class="btn btn-pink btn-sm" data-form="nav" href="#dang-ky">Đăng ký quan tâm</a>
+  </div>
+  <div class="progress" id="progress"></div>
+</header>
+
+<main id="top">
+
+<!-- ============ S01 · Hero ============ -->
+<section class="hero" data-section="S01">
+  <div class="wrap">
+    <div class="hero-txt">
+      <p class="pre rv">Một cuốn sách về hành trình của</p>
+      <h1 class="rv" style="--d:1"><span class="sel">Nhân vật<i></i><i></i><i></i><i></i></span><br><span class="nw">thương hiệu</span></h1>
+      <p class="lead rv" style="--d:2">Cẩm nang mascot cho doanh nghiệp, đúc kết từ hơn 9 năm làm nghề của TELOS.</p>
+      <div class="cta-row rv" style="--d:3">
+        <a class="btn btn-pink" href="#doc-thu" data-read>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5h7a3 3 0 0 1 3 3v12a2 2 0 0 0-2-2H2zM22 5h-7a3 3 0 0 0-3 3v12a2 2 0 0 1 2-2h8z"/></svg>
+          Đọc thử chương 1 &amp; 2</a>
+        <a class="btn btn-ghost" data-form="hero" href="#dang-ky">Đăng ký quan tâm</a>
+      </div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <div class="ring"></div>
+      <div class="circle" data-speed="-0.04"></div>
+      <div class="blob" data-speed="0.12"></div>
+      <img class="h-book" src="assets/img/book-hero.webp" alt="" data-speed="0.06">
+      <img class="h-star s1" src="assets/img/star-pink.svg" alt="" data-speed="0.2">
+      <img class="h-star s2" src="assets/img/spark-yellow.svg" alt="" data-speed="-0.16">
+      <img class="h-star s3" src="assets/img/star.svg" alt="" data-speed="0.12">
+    </div>
+  </div>
+</section>
+
+<!-- ============ S02 · Sách dành cho ai ============ -->
+<section id="ve-sach" data-section="S02">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="kicker">Sách dành cho ai</p>
+      <h2>Bạn đang có, hoặc sắp có, một mascot?<span class="l2">Cuốn này viết cho bạn.</span></h2>
+    </div>
+    <div class="aud">
+      <article class="card main rv" style="--d:1">
+        <h3>Chủ doanh nghiệp</h3>
+        <p>Bạn đang cân nhắc có nên làm mascot, làm tới đâu, và làm sao để nó thành tài sản sinh lời thay vì một khoản chi rồi để đó.</p>
+        <img class="m wiggle" src="assets/mascot/m13.webp" alt="Mascot TELOS xách cặp công sở">
+      </article>
+      <article class="card pop rv" style="--d:2">
+        <img class="ico" src="assets/icon/instagram.webp" alt="">
+        <h3>Marketer</h3>
+        <p>Thương hiệu đã có mascot nhưng mới dùng cho sticker và bao bì. Sách cho bạn lộ trình khai thác nhân vật lâu dài, từ nội dung tới điểm chạm bán hàng.</p>
+      </article>
+      <article class="card pop rv" style="--d:3">
+        <img class="ico" src="assets/icon/color.webp" alt="">
+        <h3>Designer</h3>
+        <p>Bạn muốn hiểu quy trình tạo nhân vật từ ý tưởng tới bộ 2D, 3D, và nói chuyện được với khách hàng bằng ngôn ngữ kinh doanh.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ S03 · Vì sao tụi mình viết ============ -->
+<section class="why" data-section="S03">
+  <div class="wrap">
+    <div class="why-grid">
+      <div>
+        <p class="kicker rv">Vì sao chúng mình viết cuốn sách này?</p>
+        <h2 class="rv" style="--d:1">Công ty nọ có một con mascot.<span class="l2">Rồi sao nữa?</span></h2>
+        <div class="story rv" style="--d:2">
+          <p>Nó đứng chào khách ở cửa hàng, đi sự kiện, đăng meme trên fanpage. Dần dần ai cũng quen mặt.</p>
+          <p>Nhưng chỉ vậy thôi hả? Hay còn gì nữa về thế giới phát triển của một con mascot? Nếu muốn đi xa, chúng ta cần hệ thống hoá mọi thứ lại, và TELOS đã làm việc đó.</p>
+        </div>
+      </div>
+      <div class="stage-bubbles" aria-hidden="true">
+        <div class="bubble b1 rv" style="--d:2" data-speed="0.1">Làm mascot rồi dùng vào việc gì?</div>
+        <div class="bubble b2 rv" style="--d:3" data-speed="-0.08">Sao mascot nhà người ta nổi thế?</div>
+        <div class="bubble b3 rv" style="--d:4" data-speed="0.14">Đầu tư bao nhiêu thì đủ?</div>
+        <img class="m bob" src="assets/mascot/m14.webp" alt="">
+      </div>
+    </div>
+    <div class="strip" aria-hidden="true">
+      <div class="strip-row" data-sx="-0.18">
+        <img src="assets/img/intro-01.webp" alt=""><img src="assets/img/intro-02.webp" alt=""><img src="assets/img/intro-03.webp" alt=""><img src="assets/img/intro-04.webp" alt="">
+      </div>
+    </div>
+    <div class="note rv">
+      <img class="ico" src="assets/icon/note.webp" alt="">
+      <div>
+        <p>TELOS chúng mình làm mascot cho các thương hiệu đã hơn 9 năm. Làm nhiều thì gặp lại những câu hỏi giống nhau, nên tụi mình viết cuốn này để gom hết kiến thức và kinh nghiệm đó lại, sắp xếp thành một cách làm có hệ thống. Đọc xong, bạn có thể bắt tay vào dự án mascot của mình.</p>
+        <p class="sign">Đội ngũ TELOS</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ S04 · Bên trong sách ============ -->
+<section data-section="S04">
+  <div class="wrap">
+    <div class="head-row">
+      <div class="head rv">
+        <p class="kicker">Bên trong sách</p>
+        <h2>Mascot nhà bạn đang ở chặng nào?<span class="l2">Sách chia hành trình ra 4 chặng.</span></h2>
+      </div>
+      <img class="hr-m wiggle rv" style="--d:2" src="assets/img/bm-megaphone.webp" alt="" aria-hidden="true">
+    </div>
+
+    <div class="journey">
+      <div class="j-visual" aria-hidden="true">
+        <div class="j-stage" id="jstage" data-s="0">
+          <div class="lvl"><span class="done"></span><span></span><span></span><span></span></div>
+          <div class="badge" id="jbadge">Chặng 1 / 4</div>
+          <div class="spark"><i></i><i></i><i></i><i></i></div>
+          <div class="ground"></div>
+          <img class="jm on" src="assets/mascot/m02.webp" alt="" data-scale=".62">
+          <img class="jm" src="assets/mascot/m16.webp" alt="" data-scale=".78">
+          <img class="jm" src="assets/mascot/m05.webp" alt="" data-scale=".92">
+          <img class="jm" src="assets/mascot/m08.webp" alt="" data-scale="1.06">
+        </div>
+      </div>
+      <div class="j-steps">
+        <article class="j-step on">
+          <span class="no">Chặng 1</span>
+          <h3>Phục vụ thương hiệu</h3>
+          <p class="en">Gaining Awareness</p>
+          <p>Mascot vừa ra đời và làm việc như một chất liệu marketing: in lên bao bì, sticker, ấn phẩm để khách nhớ mặt thương hiệu.</p>
+        </article>
+        <article class="j-step">
+          <span class="no">Chặng 2</span>
+          <h3>Làm “nhân viên” của thương hiệu</h3>
+          <p class="en">Ambassador</p>
+          <p>Mascot bắt đầu nhận việc: chào khách ở cửa hàng, có mặt ở sự kiện, trò chuyện với khách trên mạng xã hội.</p>
+        </article>
+        <article class="j-step">
+          <span class="no">Chặng 3</span>
+          <h3>Thân quen như người nhà</h3>
+          <p class="en">Gaining Recognition</p>
+          <p>Khách hàng nhận ra và có cảm tình riêng với nhân vật, mối quan hệ trở nên gần gũi hơn.</p>
+          <span class="eg">Ví dụ trong sách: chú bò của Vinamilk</span>
+        </article>
+        <article class="j-step">
+          <span class="no">Chặng 4</span>
+          <h3>Thành biểu tượng</h3>
+          <p class="en">Achieving Fame</p>
+          <p>Nhân vật vượt khỏi vai trò quảng cáo, có IP riêng và trở thành biểu tượng văn hoá, thương mại.</p>
+          <span class="eg">Ví dụ trong sách: Hello Kitty</span>
+        </article>
+      </div>
+    </div>
+
+    <div class="ideas">
+      <article class="card pop rv" style="--d:1">
+        <img class="ico" src="assets/icon/key.webp" alt=""><img class="peek" src="assets/img/bm-cape.webp" alt="" aria-hidden="true">
+        <h3>3 mức bảo hộ IP</h3>
+        <ul><li>Sở hữu và pháp lý</li><li>Phát triển và khai thác thương mại</li><li>Giá trị và tinh thần</li></ul>
+      </article>
+      <article class="card pop rv" style="--d:2">
+        <img class="ico" src="assets/icon/report.webp" alt=""><img class="peek" src="assets/img/bm-magnifier.webp" alt="" aria-hidden="true">
+        <h3>5 tiêu chí của TELOS</h3>
+        <ul><li>Đặc trưng</li><li>Đại diện cho tổ chức</li><li>Kỹ thuật và ứng dụng</li><li>Văn hoá và tinh thần</li><li>Tiềm năng phát triển</li></ul>
+      </article>
+      <article class="card pop rv" style="--d:3">
+        <img class="ico" src="assets/icon/profile.webp" alt=""><img class="peek" src="assets/img/bm-flower.webp" alt="" aria-hidden="true">
+        <h3>Characterize &amp; Humanize</h3>
+        <p>Cách cho nhân vật một tính cách rõ ràng và cư xử như một “con người” để khách hàng gắn bó.</p>
+      </article>
+      <article class="card pop rv" style="--d:4">
+        <img class="ico" src="assets/icon/puzzle.webp" alt=""><img class="peek" src="assets/img/bm-painter.webp" alt="" aria-hidden="true">
+        <h3>Quy trình T.E.L.O.S</h3>
+        <p>Quy trình chuẩn của TELOS: phác thảo ý tưởng, chỉnh và chốt mẫu, dựng bộ 2D rồi 3D, kèm các “must-have item” của một bộ mascot.</p>
+      </article>
+    </div>
+
+    <div class="toc">
+      <div class="rv">
+        <p class="kicker">Mục lục</p>
+        <h2 style="font-size:clamp(26px,3.2vw,40px)">7 chương, đi từ “mascot là gì”<span class="l2">tới tương lai của character tại Việt Nam.</span></h2>
+        <div class="facts">
+          <div><b>7</b><span>chương</span></div>
+          <div><b>~220</b><span>trang</span></div>
+          <div><b>6</b><span>case study của TELOS</span></div>
+          <div><b>2</b><span>chương đọc thử miễn phí</span></div>
+        </div>
+        <img class="toc-img" src="assets/img/book-open.webp" alt="Trang trong sách Hành trình của Nhân vật thương hiệu" data-speed="0.05">
+        <p style="margin-top:12px"><a class="btn btn-pink" href="#doc-thu" data-read>Đọc thử chương 1 &amp; 2</a></p>
+      </div>
+      <div class="chapters-wrap rv" style="--d:1"><img class="ch-m bob" src="assets/img/bm-teacher.webp" alt="" aria-hidden="true"><div class="chapters">
+        <details class="free" open><summary><span class="n">1</span><span class="t">Thiết kế mascot và mascot <span class="tag">Đọc thử</span></span><span class="pg">tr. 8</span></summary>
+          <ul><li>Mascot là gì?</li><li>Những lợi ích của mascot</li><li>Character marketing là gì?</li><li>Mascot là tài sản trí tuệ của doanh nghiệp</li><li>Doanh nghiệp và nhu cầu sở hữu mascot</li></ul></details>
+        <details class="free"><summary><span class="n">2</span><span class="t">Doanh nghiệp cần chuẩn bị gì? <span class="tag">Đọc thử</span></span><span class="pg">tr. 38</span></summary>
+          <ul><li>Đi tìm ý tưởng cho mascot</li><li>Các tiêu chí đánh giá mascot theo tiêu chuẩn TELOS</li><li>Ý nghĩa của mascot đối với doanh nghiệp</li><li>Các mức độ phát triển của một nhân vật</li><li>Tiềm năng nào cho chính nhân vật của bạn?</li></ul></details>
+        <details><summary><span class="n">3</span><span class="t">TELOS sẽ giúp bạn triển khai ra sao?</span><span class="pg">tr. 84</span></summary>
+          <ul><li>Quy trình tiêu chuẩn T.E.L.O.S</li><li>Các bước lên ý tưởng và tạo lập concept</li><li>Các “must-have item” của một bộ mascot</li><li>Tiêu chuẩn thực thi thiết kế tạo hình mascot</li><li>Các hình thức thể hiện và ứng dụng</li></ul></details>
+        <details><summary><span class="n">4</span><span class="t">Ứng dụng mascot vào hành trình thương hiệu</span><span class="pg">tr. 128</span></summary>
+          <ul><li>Các phương pháp đơn giản</li><li>Các phương pháp sáng tạo hơn</li><li>Kế hoạch và con đường phát triển</li></ul></details>
+        <details><summary><span class="n">5</span><span class="t">Góc nhìn mascot từ những thành công</span><span class="pg">tr. 152</span></summary>
+          <ul><li>Những mascot làm nên chuyện tại Việt Nam</li><li>Các câu chuyện thành công tại thị trường quốc tế</li></ul></details>
+        <details><summary><span class="n">6</span><span class="t">Các câu chuyện xây dựng mascot tại TELOS</span><span class="pg">tr. 168</span></summary>
+          <ul><li>Hirai · Xíu · Mascot lân · Sapuwa</li><li>Purecotton &amp; Corine the Farmer · Don Don &amp; Permate</li></ul></details>
+        <details><summary><span class="n">7</span><span class="t">Kỳ vọng về thị trường character tại Việt Nam</span><span class="pg">tr. 196</span></summary>
+          <ul><li>Tại Việt Nam: quen mà hơi… nhạt?</li><li>Tiềm năng mở rộng character marketing</li><li>Bài học từ các thị trường trưởng thành</li><li>Vai trò của các đơn vị tư vấn</li><li>Character marketing: từ thử nghiệm đến tất yếu</li></ul></details>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ S05 · Đọc thử ============ -->
+<section class="read" id="doc-thu" data-section="S05">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="kicker">Đọc thử miễn phí</p>
+      <h2>Đọc trước 2 chương đầu.<span class="l2">Không cần đăng ký.</span></h2>
+    </div>
+    <div class="read-grid">
+      <div class="read-side rv" style="--d:1">
+        <img class="m bob" src="assets/mascot/m03.webp" alt="">
+        <div class="col"><h3>Chương 1 · Thiết kế mascot và mascot</h3>
+        <ol><li>Mascot là gì?</li><li>Lợi ích của mascot với doanh nghiệp</li><li>Character marketing</li><li>Mascot là tài sản trí tuệ</li></ol></div>
+        <div class="col"><h3>Chương 2 · Doanh nghiệp cần chuẩn bị gì?</h3>
+        <ol><li>Đi tìm ý tưởng</li><li>5 tiêu chí đánh giá</li><li>4 mức độ phát triển</li><li>Tự đánh giá tiềm năng</li></ol></div>
+        <p class="hint">Mẹo: kéo góc trang hoặc dùng phím ← → để lật. Trên điện thoại, xoay ngang để xem 2 trang.</p>
+      </div>
+
+      <div class="reader rv" style="--d:2" id="reader" role="region" aria-label="Trình đọc thử">
+        <div class="bar">
+          <span class="ttl">Hành trình của Nhân vật thương hiệu · Đọc thử</span>
+          <div class="ctl">
+            <button class="ibtn" id="bPrev" aria-label="Trang trước"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+            <span class="count" id="bCount" aria-live="polite">–</span>
+            <button class="ibtn" id="bNext" aria-label="Trang sau"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg></button>
+          </div>
+          <button class="ibtn" id="bFull" aria-label="Toàn màn hình"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
+          <a class="ibtn" id="bPdf" target="_blank" rel="noopener" aria-label="Mở file PDF trong tab mới"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg></a>
+        </div>
+        <div class="stage-book">
+          <button class="poster" id="bOpen" style="background:none;border:0;color:inherit">
+            <div class="book3d"><div class="pages"></div><div class="cover"><small>ĐỌC THỬ</small><strong>Chương 1 &amp; 2</strong><img src="assets/mascot/m12.webp" alt=""></div></div>
+            <span class="btn btn-pink">Mở sách đọc thử</span>
+            <p>Sách tự mở khi bạn cuộn tới đây</p>
+          </button>
+          <div class="loading"><div class="spin"></div><span id="bLoadTxt">Đang mở sách…</span></div>
+          <div class="err">
+            <h3 style="color:#fff">Chưa mở được sách ở đây</h3>
+            <p>Mạng chậm hoặc file đang bị chặn. Bạn mở bản PDF trong tab mới nhé.</p>
+            <a class="btn btn-white" id="bPdf2" target="_blank" rel="noopener">Mở bản PDF</a>
+          </div>
+          <div class="flip" id="flip"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ S06a · Đội ngũ ============ -->
+<section class="team" id="doi-ngu" data-section="S06">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="kicker">Đội ngũ phía sau</p>
+      <h2>Đội ngũ nào đã đứng sau<span class="l2">những trang sách này?</span></h2>
+    </div>
+    <div class="team-grid">
+      <div class="t-a">
+        <article class="paper rv" style="--r:-3deg">
+          <div class="p-title"><img src="assets/img/telos-logo.webp" alt="TELOS"><span>TELOS Branding &amp; Website Agency</span></div>
+          <div class="p-box">TELOS Agency là đơn vị chuyên cung cấp giải pháp về Branding, thiết kế Website và đặc biệt là thiết kế, sáng tạo và lên kế hoạch ứng dụng mascot, với hơn 9 năm kinh nghiệm trong ngành.</div>
+        </article>
+        <figure class="photo rv" style="--r:2deg;--d:2" data-speed="-0.05"><img src="assets/img/team.webp" alt="Tập thể TELOS Agency" loading="lazy"><img class="ph-logo" src="assets/img/telos-logo.webp" alt=""></figure>
+      </div>
+      <div class="t-b">
+        <article class="post rv" style="--r:2deg;--d:1" data-speed="0.06">
+          <div class="post-h">New Post</div>
+          <div class="post-who"><img src="assets/img/telos-logo.webp" alt=""><b>TELOS Agency</b></div>
+          <p>Một cuốn sách mà bất kỳ người làm marketing hay chủ doanh nghiệp nào cũng không nên bỏ lỡ!</p>
+          <div class="post-tags"><span>#mascot</span><span>#branding</span><span>#telosagency</span></div>
+          <div class="post-av"><img src="assets/img/mascot-phone.webp" alt=""></div>
+        </article>
+        <article class="paper quote rv" style="--r:-2deg;--d:2">
+          <p>TELOS không nhận mình là người tiên phong trên thị trường, nhưng chúng mình có góc nhìn, triết lý và cả những trải nghiệm thực tế trong ngành.</p>
+          <a class="btn btn-pink btn-sm" data-form="team" href="#dang-ky">Đăng ký quan tâm</a>
+        </article>
+        <figure class="photo small rv" style="--r:4deg;--d:3" data-speed="0.08"><img src="assets/img/talk.webp" alt="Nhân Lưu chia sẻ tại một buổi talk" loading="lazy"><img class="doodle" src="assets/img/star-pink.svg" alt=""></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ S06b · Tác giả chấp bút ============ -->
+<section id="tac-gia" data-section="S06b" style="padding-top:0">
+  <img class="authors-m bob" src="assets/mascot/m09.webp" alt="" aria-hidden="true">
+  <div class="wrap">
+    <div class="head center rv">
+      <p class="kicker">Tác giả chấp bút</p>
+      <h2>Những người viết<span class="l2">từ chính dự án của mình.</span></h2>
+    </div>
+    <div class="authors">
+      <article class="au rv" style="--d:2">
+        <div class="ph"><img src="assets/img/author-quynh-cao.webp" alt="Quỳnh Cao" loading="lazy"></div>
+        <span class="role">Tác giả</span>
+        <h3>Quỳnh Cao</h3>
+        <p>Marketing Executive tại TELOS. Quản lý dự án sách và trực tiếp viết nội dung.</p>
+      </article>
+      <article class="au lead-au rv" style="--d:1">
+        <div class="ph"><img src="assets/img/author-nhan-luu.webp" alt="Nhân Lưu" loading="lazy"></div>
+        <span class="role">Tác giả</span>
+        <h3>Nhân Lưu</h3>
+        <p>Founder TELOS Agency và TELOS Academy. Định hướng phần lý thuyết và đồng viết sách.</p>
+      </article>
+      <article class="au rv" style="--d:3">
+        <div class="ph"><img src="assets/img/author-quy-tran.webp" alt="Quy Trần" loading="lazy"></div>
+        <span class="role">Đồng tác giả</span>
+        <h3>Quy Trần</h3>
+        <p>Content Writer tại TELOS. Quản lý nội dung và viết sách.</p>
+      </article>
+    </div>
+    <div class="co rv">
+      <div class="chip"><b>TC</b><span>Đội Creative TELOS<small>Đồng tác giả · ứng dụng lý thuyết vào dự án thật</small></span></div>
+      <div class="chip"><b>TA</b><span>Đội Account TELOS<small>Đồng tác giả · xây nền tảng thực tế</small></span></div>
+    </div>
+    <div class="stats">
+      <div class="rv" style="--d:1"><b data-count="9" data-suffix="+">9+</b><span>năm làm mascot và branding</span></div>
+      <div class="rv" style="--d:2"><b data-count="50" data-suffix="+">50+</b><span>dự án mascot đã làm</span></div>
+      <div class="rv" style="--d:3"><b data-count="6">6</b><span>case study kể lại trong sách</span></div>
+      <div class="rv" style="--d:4"><b data-count="3000" data-suffix="+">3.000+</b><span>học viên TELOS Academy</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ S07 · Đăng ký quan tâm ============ -->
+<section class="signup" id="dang-ky" data-section="S07">
+  <div class="wrap">
+    <div class="signup-box rv">
+      <div>
+        <p class="kicker">Đăng ký quan tâm</p>
+        <h2>Muốn cầm sách trên tay?<span class="l2">Cho tụi mình biết bạn đang chờ.</span></h2>
+        <p>Sách viết xong năm 2024, thiết kế xong năm 2025. Giờ chỉ còn chờ in. Số người đăng ký sẽ giúp tụi mình quyết định in bao nhiêu và in dạng nào.</p>
+        <ul class="ticks">
+          <li>Được báo đầu tiên khi sách mở in</li>
+          <li>Góp ý chọn sách in, ebook hay cả hai</li>
+          <li>Miễn phí, không phải đặt mua hay đặt cọc</li>
+        </ul>
+        <a class="btn btn-white" data-form="signup" href="#dang-ky" target="_blank" rel="noopener">Đăng ký quan tâm
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <p class="small">Mở Google Form · khoảng 1 phút · 7 câu hỏi ngắn</p>
+      </div>
+      <img class="m bob" src="assets/mascot/m10.webp" alt="Mascot TELOS vẫy tay">
+    </div>
+  </div>
+</section>
+
+<!-- ============ S08 · Quiz ============ -->
+<section id="quiz" data-section="S08">
+  <div class="wrap">
+    <div class="quiz">
+      <div class="rv">
+        <p class="kicker">Kiểm tra nhanh</p>
+        <h2>Mascot nhà bạn<span class="l2">“trưởng thành” tới đâu?</span></h2>
+        <p class="lead">11 câu hỏi có hoặc không, khoảng 1 phút. Xem mascot của bạn đạt bao nhiêu tiêu chí và nên làm gì tiếp theo.</p>
+        <img class="m wiggle" src="assets/mascot/m07.webp" alt="Mascot TELOS cầm kính lúp">
+      </div>
+      <div class="qbox rv" style="--d:1" id="qbox" aria-live="polite">
+        <div class="qq">
+          <div class="qtop"><span id="qNo">Câu 1/11</span><span>Có hay không?</span></div>
+          <div class="qbar"><i id="qBar"></i></div>
+          <p class="qtext" id="qText"></p>
+          <div class="qans"><button class="yes" data-a="1">Có</button><button data-a="0">Chưa</button></div>
+          <button class="qback" id="qBack" hidden>← Câu trước</button>
+        </div>
+        <div class="qres">
+          <div class="badge" id="rBadge"></div>
+          <h3 id="rShort"></h3>
+          <div class="cta-row">
+            <button class="btn btn-pink" id="qShow">Xem kết quả</button>
+            <button class="btn btn-ghost" id="qAgain">Làm lại</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Popup kết quả quiz -->
+<dialog class="qmodal" id="qModal" aria-labelledby="qmTitle">
+  <div class="qm">
+    <button class="x" id="qClose" aria-label="Đóng">×</button>
+    <h3 id="qmTitle">Mascot của bạn đạt <span class="badge" id="qmScore">0/11</span> tiêu chí</h3>
+    <p class="sub" id="qmSub"></p>
+    <span class="chap" id="qmChap"></span>
+    <div class="opts">
+      <a class="qopt self" data-form="quiz" href="#dang-ky" target="_blank" rel="noopener">
+        <div class="art"><img src="assets/img/bm-laptop.webp" alt=""><img class="ico" src="assets/icon/book.webp" alt=""></div>
+        <b>Tự tay nâng cấp</b>
+        <span>Đăng ký sách và nâng cấp Mascot theo quy trình chuẩn từ TELOS.</span>
+        <em>Đăng ký quan tâm →</em>
+      </a>
+      <a class="qopt pro" data-pro href="https://telos.vn/lien-he/" target="_blank" rel="noopener">
+        <div class="art"><img src="assets/mascot/m01.webp" alt=""><img class="ico" src="assets/icon/bulb.webp" alt=""></div>
+        <b>Đột phá cùng chuyên gia</b>
+        <span>Liên hệ và nhận giải pháp thiết kế chuyên nghiệp cho doanh nghiệp.</span>
+        <em>Liên hệ TELOS Agency →</em>
+      </a>
+    </div>
+  </div>
+</dialog>
+
+<!-- ============ S09 · Làm việc cùng TELOS ============ -->
+<section data-section="S09">
+  <div class="wrap">
+    <div class="svc-head">
+      <div class="head rv">
+        <p class="kicker">Làm việc cùng TELOS</p>
+        <h2>Muốn có mascot cho thương hiệu?<span class="l2">Hoặc muốn tự tay thiết kế?</span></h2>
+      </div>
+      <img class="m bob" src="assets/mascot/m06.webp" alt="" aria-hidden="true">
+    </div>
+    <div class="svc">
+      <article class="card ag rv" style="--d:1">
+        <span class="tag yellow">TELOS Agency</span>
+        <h3>Thiết kế mascot và thương hiệu</h3>
+        <p>Đội ngũ đứng sau cuốn sách. Lên ý tưởng, thiết kế mascot 2D, 3D, bộ sticker, guideline và branding cho doanh nghiệp.</p>
+        <a class="lk" href="https://telos.vn" target="_blank" rel="noopener">Xem dự án tại telos.vn →</a>
+      </article>
+      <article class="card rv" style="--d:2">
+        <span class="tag sky">TELOS Academy</span>
+        <h3>Học UI/UX và Product Design</h3>
+        <p>Trường đào tạo thiết kế của TELOS với hơn 3.000 học viên đã tốt nghiệp. Học theo dự án thật, có lộ trình từ căn bản tới chuyên sâu.</p>
+        <a class="lk" href="https://academy.telos.vn" target="_blank" rel="noopener">Xem khóa học tại academy.telos.vn →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ S10 · Hỏi đáp ============ -->
+<section id="hoi-dap" data-section="S10">
+  <div class="wrap">
+    <div class="faq">
+      <div class="rv">
+        <p class="kicker">Hỏi đáp</p>
+        <h2>Bạn hỏi,<span class="l2">tụi mình trả lời.</span></h2>
+        <img class="m bob" src="assets/mascot/m15.webp" alt="" aria-hidden="true">
+      </div>
+      <div class="rv" style="--d:1">
+        <details open><summary>Khi nào sách phát hành?</summary>
+          <p>Sách viết xong từ 2024, thiết kế xong năm 2025. Chưa in là vì TELOS còn… nghèo, đang tập trung kiếm tiền nuôi team trước 😅. Khi đủ người quan tâm, tụi mình sẽ in, và người đăng ký sẽ được báo đầu tiên.</p></details>
+        <details><summary>Đăng ký quan tâm có phải là đặt mua không?</summary>
+          <p>Không. Bạn chỉ để lại thông tin để được báo tin, hoàn toàn miễn phí, không đặt cọc.</p></details>
+        <details><summary>Có ebook không?</summary>
+          <p>Tụi mình đang khảo sát. Bạn chọn sách in, ebook hay cả hai ngay trong form đăng ký nhé.</p></details>
+        <details><summary>Sách dành cho ai?</summary>
+          <p>Chủ doanh nghiệp đang tính làm mascot, marketer muốn khai thác nhân vật lâu dài, và designer muốn hiểu quy trình tạo nhân vật.</p></details>
+        <details><summary>Muốn làm mascot cho thương hiệu thì liên hệ ai?</summary>
+          <p>TELOS Agency, đội ngũ viết cuốn sách này. Bạn xem dự án tại <a href="https://telos.vn" target="_blank" rel="noopener">telos.vn</a>, hoặc tick ô “Tư vấn thiết kế mascot” trong form đăng ký.</p></details>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ============ S11 · Footer ============ -->
+<footer data-section="S11">
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <h3>Hành trình của Nhân vật thương hiệu</h3>
+        <p>Sách về mascot của đội ngũ TELOS. Đã viết xong, đang chờ ngày in.</p>
+        <p class="tags">#mascot #telosagency #branding</p>
+      </div>
+      <div>
+        <h3>Liên hệ</h3>
+        <ul>
+          <li><a href="mailto:hello@telos.vn">hello@telos.vn</a></li>
+          <li><a href="https://www.facebook.com/TELOSVN/" target="_blank" rel="noopener">Facebook TELOS</a></li>
+          <li><a href="https://zalo.me/0949165064" target="_blank" rel="noopener">Zalo 0949 165 064</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>TELOS</h3>
+        <ul>
+          <li><a href="https://telos.vn" target="_blank" rel="noopener">TELOS Agency</a></li>
+          <li><a href="https://academy.telos.vn" target="_blank" rel="noopener">TELOS Academy</a></li>
+          <li><a href="#doc-thu">Đọc thử chương 1 &amp; 2</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copy"><span>© 2026 TELOS. Mọi quyền được bảo lưu.</span><span>Mascot: nhân vật đại diện TELOS Academy</span></div>
+  </div>
+</footer>
+
+<div class="fab" id="fab"><img src="assets/img/book-float.webp" alt=""><a class="btn btn-pink" data-form="fab" href="#dang-ky">Đăng ký quan tâm</a></div>
+
+<script>
+/* ================== CẤU HÌNH ================== */
+const CONFIG = {
+  // [CẦN BỔ SUNG] Link Google Form (dạng https://docs.google.com/forms/d/e/.../viewform)
+  FORM_URL: '',
+  // [Tuỳ chọn] entry ID của câu hỏi ẩn "Nguồn" để biết người đăng ký bấm từ đâu (vd 'entry.123456789')
+  FORM_SOURCE_ENTRY: '',
+  // File PDF đọc thử (dàn trang đôi). Nếu đặt trên domain khác, server cần bật CORS (Access-Control-Allow-Origin)
+  PDF_URL: 'https://cdn.telos.vn/wp-content/uploads/2026/06/TELOS_Mascot_DocThu_TrangDoi.pdf',
+  // Bản PDF đặt cùng thư mục trang: dùng khi trang chạy ngoài domain telos.vn (cdn.telos.vn chặn CORS)
+  PDF_LOCAL: 'assets/TELOS_Mascot_DocThu_TrangDoi.pdf',
+  PDFJS: 'https://cdn.jsdelivr.net/npm/pdfjs-dist@4.4.168/build/pdf.min.mjs',
+  PDFJS_WORKER: 'https://cdn.jsdelivr.net/npm/pdfjs-dist@4.4.168/build/pdf.worker.min.mjs',
+  PAGEFLIP: 'https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js'
+};
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const track = (ev, p={}) => { try{ (window.dataLayer=window.dataLayer||[]).push({event:ev,...p}); }catch(e){} };
+
+/* ---------- Link Google Form + nguồn ---------- */
+document.querySelectorAll('[data-form]').forEach(a=>{
+  const src=a.dataset.form;
+  if(CONFIG.FORM_URL){
+    let u=CONFIG.FORM_URL;
+    if(CONFIG.FORM_SOURCE_ENTRY) u += (u.includes('?')?'&':'?')+'usp=pp_url&'+CONFIG.FORM_SOURCE_ENTRY+'='+encodeURIComponent(src);
+    a.href=u; a.target='_blank'; a.rel='noopener';
+  }else{ a.href='#dang-ky'; a.removeAttribute('target'); }
+  a.addEventListener('click',()=>track('form_click',{source:src}));
+});
+
+/* ---------- Reveal + selection box + count-up ---------- */
+const io=new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting) return;
+  e.target.classList.add('in');
+  e.target.querySelectorAll('.sel').forEach(s=>s.classList.add('on'));
+  e.target.querySelectorAll('[data-count]').forEach(countUp);
+  if(e.target.matches('[data-count]')) countUp(e.target);
+  io.unobserve(e.target);
+}),{threshold:.15,rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+setTimeout(()=>document.querySelectorAll('.hero .sel').forEach(s=>s.classList.add('on')),300);
+function countUp(el){
+  if(el.dataset.done) return; el.dataset.done=1;
+  const end=+el.dataset.count, suf=el.dataset.suffix||'';
+  if(reduce){ el.textContent=end.toLocaleString('vi-VN')+suf; return; }
+  const t0=performance.now(), d=1200;
+  (function f(t){ const k=Math.min(1,(t-t0)/d), v=Math.round(end*(1-Math.pow(1-k,3)));
+    el.textContent=v.toLocaleString('vi-VN')+suf; if(k<1) requestAnimationFrame(f); })(t0);
+}
+
+/* ---------- Nav, thanh tiến độ, parallax ---------- */
+const nav=document.getElementById('nav'), bar=document.getElementById('progress'), fab=document.getElementById('fab');
+const para=[...document.querySelectorAll('[data-speed]')], parx=[...document.querySelectorAll('[data-sx]')];
+const signup=document.getElementById('dang-ky'), hero=document.querySelector('.hero'), heroIn=hero.querySelector('.wrap');
+let ticking=false;
+function onScroll(){
+  const y=scrollY, h=document.documentElement.scrollHeight-innerHeight;
+  const hh=hero.offsetHeight-48-parseInt(getComputedStyle(nav).height);
+  nav.classList.toggle('solid',y>hh); nav.classList.toggle('dark',y<=hh);
+  bar.style.width=(h>0?y/h*100:0)+'%';
+  const sr=signup.getBoundingClientRect();
+  const rr=document.getElementById('reader').getBoundingClientRect();
+  fab.classList.toggle('show', y>innerHeight*.9 && !(sr.top<innerHeight && sr.bottom>0) && !(rr.top<innerHeight*.8 && rr.bottom>innerHeight*.2));
+  if(!reduce){
+    // Hero lùi chậm + mờ dần, phần dưới trượt lên phủ
+    if(y<innerHeight*1.2){ heroIn.style.transform='translate3d(0,'+(y*.42).toFixed(1)+'px,0)'; heroIn.style.opacity=Math.max(0,1-y/(innerHeight*.85)).toFixed(3); }
+    para.forEach(el=>{
+      const r=el.getBoundingClientRect(); if(r.bottom<-200||r.top>innerHeight+200) return;
+      const c=(r.top+r.height/2-innerHeight/2);
+      el.style.translate='0 '+(c*+el.dataset.speed).toFixed(1)+'px';
+    });
+    parx.forEach(el=>{
+      const r=el.parentElement.getBoundingClientRect(); if(r.bottom<0||r.top>innerHeight) return;
+      el.style.translate=((r.top+r.height/2-innerHeight/2)*+el.dataset.sx).toFixed(1)+'px 0';
+    });
+  }
+  ticking=false;
+}
+addEventListener('scroll',()=>{ if(!ticking){ ticking=true; requestAnimationFrame(onScroll); } },{passive:true});
+onScroll();
+// Mục đang xem trên menu
+const links=[...document.querySelectorAll('.nav ul a')];
+const secIO=new IntersectionObserver(es=>es.forEach(e=>{
+  if(e.isIntersecting) links.forEach(a=>a.classList.toggle('act',a.getAttribute('href')==='#'+e.target.id));
+}),{rootMargin:'-45% 0px -50% 0px'});
+links.forEach(a=>{ const s=document.querySelector(a.getAttribute('href')); s&&secIO.observe(s); });
+
+/* ---------- S04: hành trình 4 chặng ---------- */
+(()=>{
+  const stage=document.getElementById('jstage'), badge=document.getElementById('jbadge');
+  const ims=[...stage.querySelectorAll('.jm')], lv=[...stage.querySelectorAll('.lvl span')];
+  const steps=[...document.querySelectorAll('.j-step')];
+  function set(i){
+    stage.dataset.s=i; badge.textContent='Chặng '+(i+1)+' / 4';
+    ims.forEach((im,k)=>{ im.classList.toggle('on',k===i); im.style.transform='translateX(-50%) scale('+(k===i?im.dataset.scale:(+im.dataset.scale*.8))+')'; });
+    lv.forEach((l,k)=>l.classList.toggle('done',k<=i));
+    steps.forEach((s,k)=>s.classList.toggle('on',k===i));
+  }
+  const sio=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting) set(steps.indexOf(e.target)); }),{rootMargin:'-45% 0px -45% 0px'});
+  steps.forEach(s=>sio.observe(s)); set(0);
+})();
+
+/* ---------- S05: trình đọc thử (pdf.js + StPageFlip) ---------- */
+(()=>{
+  const R=document.getElementById('reader'), flipEl=document.getElementById('flip');
+  const bPrev=document.getElementById('bPrev'), bNext=document.getElementById('bNext'), bCount=document.getElementById('bCount');
+  const bFull=document.getElementById('bFull'), loadTxt=document.getElementById('bLoadTxt');
+  ['bPdf','bPdf2'].forEach(id=>document.getElementById(id).href=CONFIG.PDF_URL);
+  let pf=null, pdf=null, slots=[], started=false, total=0, seen=new Set();
+  const cache=new Map(); // pdf page -> canvas
+  const loadScript=src=>new Promise((ok,no)=>{ const s=document.createElement('script'); s.src=src; s.onload=ok; s.onerror=no; document.head.appendChild(s); });
+
+  async function start(){
+    if(started) return; started=true; track('read_open');
+    R.classList.add('is-loading');
+    try{
+      const [pdfjs]=await Promise.all([import(CONFIG.PDFJS), window.St?Promise.resolve():loadScript(CONFIG.PAGEFLIP)]);
+      pdfjs.GlobalWorkerOptions.workerSrc=CONFIG.PDFJS_WORKER;
+      const sameSite=/(^|\.)telos\.vn$/.test(location.hostname);
+      const urls=sameSite?[CONFIG.PDF_URL,CONFIG.PDF_LOCAL]:[CONFIG.PDF_LOCAL,CONFIG.PDF_URL];
+      let lastErr;
+      for(const u of urls){
+        try{ pdf=await pdfjs.getDocument({url:u, disableAutoFetch:true}).promise; break; }catch(e){ lastErr=e; console.warn('[đọc thử] không tải được',u); }
+      }
+      if(!pdf) throw lastErr;
+      loadTxt.textContent='Đang dàn trang…';
+      // Trang PDF ngang (trang đôi) được cắt làm 2 trang sách; trang dọc giữ nguyên
+      let pw=0, ph=0, firstSingle=false;
+      for(let i=1;i<=pdf.numPages;i++){
+        const v=(await pdf.getPage(i)).getViewport({scale:1});
+        if(v.width/v.height>1.15){ slots.push({p:i,h:'L'},{p:i,h:'R'}); if(!pw){pw=v.width/2;ph=v.height;} }
+        else { slots.push({p:i,h:null}); if(i===1) firstSingle=true; if(!pw){pw=v.width;ph=v.height;} }
+      }
+      total=slots.length;
+      const pages=slots.map((s,k)=>{ const d=document.createElement('div'); d.className='page'; if(k===0&&firstSingle) d.dataset.density='hard';
+        d.innerHTML='<div class="ph">Trang '+(k+1)+'</div>'; s.el=d; return d; });
+      // Trang cuối: lời mời đăng ký
+      const end=document.createElement('div'); end.className='page end'; end.dataset.density='hard';
+      end.innerHTML='<div class="in"><img src="assets/mascot/m05.webp" alt=""><h3>Hết phần đọc thử!</h3><p>Muốn đọc tiếp 5 chương còn lại? Để lại thông tin, sách mở in là tụi mình báo bạn đầu tiên.</p><a class="btn btn-white btn-sm" data-form="reader-end" href="#dang-ky">Đăng ký quan tâm</a></div>';
+      pages.push(end);
+      // Trang "phía sau còn gì" đứng trước trang cuối để trang cuối nằm bên phải
+      const more=document.createElement('div'); more.className='page more';
+      more.innerHTML='<div class="in"><span class="tag yellow">Phía sau còn</span><ol start="3"><li>TELOS sẽ giúp bạn triển khai ra sao?</li><li>Ứng dụng mascot vào hành trình thương hiệu</li><li>Góc nhìn mascot từ những thành công</li><li>6 câu chuyện mascot tại TELOS</li><li>Kỳ vọng về thị trường character tại Việt Nam</li></ol></div>';
+      const need=firstSingle?1:0; // showCover: tổng số trang lẻ thì trang cuối nằm bên phải
+      if((pages.length+1)%2===need) pages.splice(pages.length-1,0,more);
+      R.classList.remove('is-loading'); R.classList.add('is-ready');
+      pf=new St.PageFlip(flipEl,{width:Math.round(pw),height:Math.round(ph),size:'stretch',minWidth:240,maxWidth:1400,minHeight:320,maxHeight:2000,
+        showCover:firstSingle,usePortrait:true,maxShadowOpacity:.45,flippingTime:reduce?1:750,mobileScrollSupport:true,drawShadow:!reduce});
+      pf.loadFromHTML(pages);
+      // Link trong trang cuối
+      const a=end.querySelector('[data-form]'); a.addEventListener('click',()=>track('form_click',{source:'reader-end'}));
+      if(CONFIG.FORM_URL){ a.href=CONFIG.FORM_URL; a.target='_blank'; a.rel='noopener'; } else a.addEventListener('click',()=>{ if(R.classList.contains('full')) toggleFull(); });
+      pf.on('flip',e=>update(e.data)); pf.on('changeOrientation',()=>update(pf.getCurrentPageIndex()));
+      update(0); fit();
+    }catch(err){
+      console.warn('[đọc thử]',err); R.classList.remove('is-loading'); R.classList.add('is-error'); track('read_error');
+    }
+  }
+  function update(i){
+    const n=pf.getPageCount();
+    const two=pf.getOrientation()==='landscape' && !(i===0&&pf.getSettings().showCover) && i+1<n;
+    bCount.textContent=(two?(i+1)+'–'+(i+2):Math.min(i+1,n))+' / '+n;
+    bPrev.disabled=i<=0; bNext.disabled=i>=n-1;
+    for(let k=i-2;k<=i+5;k++) if(slots[k]) queue(k);
+    seen.add(i); const pct=i/(n-1);
+    if(pct>=.5 && !seen.has('h')){ seen.add('h'); track('read_50'); }
+    if(i>=n-2 && !seen.has('e')){ seen.add('e'); track('read_end'); }
+  }
+  // Render tuần tự để không nghẽn máy yếu
+  let q=[], busy=false;
+  function queue(k){ const s=slots[k]; if(s.done||s.q) return; s.q=1; q.push(s); pump(); }
+  async function pump(){
+    if(busy) return; busy=true;
+    while(q.length){
+      const s=q.shift();
+      try{
+        const src=await pageCanvas(s.p);
+        const c=document.createElement('canvas'); const half=s.h?src.width/2:src.width;
+        c.width=half; c.height=src.height;
+        c.getContext('2d').drawImage(src, s.h==='R'?half:0,0,half,src.height,0,0,half,src.height);
+        s.el.innerHTML=''; s.el.appendChild(c); s.done=1;
+      }catch(e){ s.q=0; }
+    }
+    busy=false;
+  }
+  async function pageCanvas(p){
+    if(cache.has(p)) return cache.get(p);
+    const page=await pdf.getPage(p), v1=page.getViewport({scale:1});
+    const box=flipEl.getBoundingClientRect();
+    const target=Math.max(700,Math.min(2400,(R.classList.contains('full')?innerHeight:box.height||700)*Math.min(devicePixelRatio||1,2)));
+    const v=page.getViewport({scale:target/v1.height});
+    const c=document.createElement('canvas'); c.width=Math.round(v.width); c.height=Math.round(v.height);
+    await page.render({canvasContext:c.getContext('2d'),viewport:v}).promise;
+    cache.set(p,c); if(cache.size>14){ cache.delete(cache.keys().next().value); }
+    return c;
+  }
+  // Giới hạn chiều cao sách theo khung
+  function fit(){
+    if(!pf) return;
+    const full=R.classList.contains('full');
+    const maxH=full?innerHeight-90:Math.min(innerHeight*.78,760);
+    const ratio=(pf.getSettings().width*(innerWidth<760||pf.getOrientation()==='portrait'?1:2))/pf.getSettings().height;
+    const w=Math.min(flipEl.parentElement.clientWidth, maxH*ratio);
+    flipEl.style.width=w+'px';
+    dispatchEvent(new Event('resize'));
+  }
+  function toggleFull(){
+    const on=!R.classList.contains('full');
+    R.classList.toggle('full',on); document.body.classList.toggle('lock',on);
+    bFull.setAttribute('aria-label',on?'Thoát toàn màn hình':'Toàn màn hình');
+    if(on){ start(); history.replaceState(null,'','#doc-thu'); }
+    requestAnimationFrame(()=>{ fit(); setTimeout(fit,60); });
+  }
+  let rt; addEventListener('resize',e=>{ if(!e.isTrusted) return; clearTimeout(rt); rt=setTimeout(fit,150); });
+  document.getElementById('bOpen').addEventListener('click',start);
+  bPrev.addEventListener('click',()=>pf&&pf.flipPrev());
+  bNext.addEventListener('click',()=>pf&&pf.flipNext());
+  bFull.addEventListener('click',toggleFull);
+  addEventListener('keydown',e=>{
+    if(!pf) return; const r=R.getBoundingClientRect(), vis=r.top<innerHeight*.6&&r.bottom>innerHeight*.4;
+    if(!(vis||R.classList.contains('full'))) return;
+    if(e.key==='ArrowRight'){ pf.flipNext(); } if(e.key==='ArrowLeft'){ pf.flipPrev(); }
+    if(e.key==='Escape'&&R.classList.contains('full')) toggleFull();
+  });
+  // Nút "Đọc thử" ở các nơi khác: cuộn tới và mở sách
+  document.querySelectorAll('[data-read]').forEach(a=>a.addEventListener('click',()=>setTimeout(start,450)));
+  if(location.hash==='#doc-thu') setTimeout(start,600);
+  // Tự mở sách khi người xem cuộn gần tới khu đọc thử
+  const auto=new IntersectionObserver(es=>{ if(es.some(e=>e.isIntersecting)){ auto.disconnect(); start(); } },{rootMargin:'600px 0px'});
+  auto.observe(R);
+})();
+
+/* ---------- S08: quiz ---------- */
+(()=>{
+  const Q=[
+    'Khi thu nhỏ thành icon (favicon) hoặc in trên danh thiếp, mascot có còn nhìn rõ các chi tiết không?',
+    'Mascot có phản ánh đúng tính cách thương hiệu và nhóm khách hàng bạn muốn chạm tới không?',
+    'Hình dáng mascot có đủ đơn giản để người xem nhận ra chỉ qua silhouette hoặc vài nét chính không?',
+    'Bảng màu mascot có ăn khớp với hệ màu thương hiệu và dùng ổn trên cả nền sáng lẫn nền tối không?',
+    'Mascot có nhiều biểu cảm để dùng linh hoạt trong social post, sticker, chatbot hoặc nội dung hướng dẫn không?',
+    'Khi mặc đồ theo dịp lễ (Tết, Giáng sinh…) hoặc cầm thêm đạo cụ, mascot có dễ biến tấu mà không mất nét đặc trưng không?',
+    'Bạn đã có bộ pose, hành động đủ rõ để mascot xuất hiện tự nhiên trong các tình huống truyền thông chưa?',
+    'Mascot có guideline quy định cách dùng, vùng an toàn, kích thước tối thiểu và những lỗi cần tránh không?',
+    'File mascot đã được chuẩn bị đủ định dạng cho in ấn, digital và animation chưa?',
+    'Mascot có câu chuyện, vai trò hoặc thế giới riêng để phát triển thành nội dung dài hạn không?',
+    'Mascot đã được gắn với các điểm chạm kinh doanh cụ thể như CTA, ưu đãi, onboarding hoặc chăm sóc khách hàng chưa?'
+  ];
+  // Mức kết quả theo số câu "Có"
+  const RES=[
+    {max:3, short:'Mascot còn đang ở giai đoạn sơ khai',
+     sub:'Nhân vật đã có hình hài nhưng chưa có nền móng để làm việc lâu dài. Bắt đầu từ việc hiểu mascot là gì và chấm điểm lại theo tiêu chí.',
+     chap:'Nên đọc trước: Chương 1 và 2 (đọc thử miễn phí)'},
+    {max:6, short:'Mascot đã có một vài ứng dụng và nền tảng nhất định',
+     sub:'Mascot đã bắt đầu làm việc cho thương hiệu. Giờ là lúc hoàn thiện bộ công cụ để cả team dùng đều tay và đúng cách.',
+     chap:'Nên đọc trước: Chương 3 · Các “must-have item” của một bộ mascot'},
+    {max:9, short:'Mascot có tính hệ thống và đang được đầu tư rất bài bản',
+     sub:'Nền móng đã vững. Vài mảnh còn thiếu sẽ giúp nhân vật bước sang chặng tiếp theo trên hành trình.',
+     chap:'Nên đọc trước: Chương 4 · Ứng dụng mascot vào hành trình thương hiệu'},
+    {max:11, short:'Tiềm năng rất lớn',
+     sub:'Tiềm năng rất lớn, nhưng vẫn còn vài “điểm nghẽn” cần xử lý để thực sự bùng nổ!',
+     chap:'Nên đọc trước: Chương 4 · Kế hoạch phát triển, và Chương 5'}
+  ];
+  const N=Q.length;
+  const box=document.getElementById('qbox'), no=document.getElementById('qNo'), txt=document.getElementById('qText'), qb=document.getElementById('qBar'), back=document.getElementById('qBack');
+  const dlg=document.getElementById('qModal');
+  let i=0, ans=[];
+  function show(){ no.textContent='Câu '+(i+1)+'/'+N; txt.textContent=Q[i]; qb.style.width=(i/N*100)+'%'; back.hidden=i===0; }
+  box.querySelectorAll('[data-a]').forEach(b=>b.addEventListener('click',()=>{
+    ans[i]=+b.dataset.a; if(i===0) track('quiz_start');
+    if(++i<N) show(); else result();
+  }));
+  back.addEventListener('click',()=>{ if(i>0){ i--; show(); } });
+  function result(){
+    const s=ans.reduce((a,b)=>a+b,0), r=RES.find(r=>s<=r.max);
+    // Câu sau chữ "đạt" rút gọn khi 10–11 điểm
+    document.getElementById('qmScore').textContent=s+'/'+N;
+    document.getElementById('qmSub').textContent=r.max===11?r.sub:(r.short+'. '+r.sub);
+    document.getElementById('qmChap').textContent=r.chap;
+    document.getElementById('rBadge').textContent=s+'/'+N;
+    document.getElementById('rShort').textContent=r.short;
+    qb.style.width='100%'; box.classList.add('done'); track('quiz_done',{score:s});
+    open();
+  }
+  function open(){ if(dlg.showModal){ dlg.showModal(); document.body.classList.add('lock'); } }
+  function close(){ dlg.close(); }
+  dlg.addEventListener('close',()=>document.body.classList.remove('lock'));
+  dlg.addEventListener('click',e=>{ if(e.target===dlg) close(); });
+  document.getElementById('qClose').addEventListener('click',close);
+  document.getElementById('qShow').addEventListener('click',open);
+  dlg.querySelector('[data-pro]').addEventListener('click',()=>track('agency_click',{source:'quiz'}));
+  document.getElementById('qAgain').addEventListener('click',()=>{ i=0; ans=[]; box.classList.remove('done'); show(); });
+  show();
+})();
+</script>
+</body>
+</html>
